@@ -1,4 +1,10 @@
 from django.contrib import admin
 from student.models import student
 
-admin.site.register(student)
+
+
+class StudentAdmin(admin.ModelAdmin):
+        list_per_page = 10
+        list_display = ('student_ID','first_name','middle_name','last_name')
+
+admin.site.register(student, StudentAdmin)
