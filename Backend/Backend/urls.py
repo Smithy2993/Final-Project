@@ -9,6 +9,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^student/', include('student.urls')),
+    url(r'^accounts/', include('registration.backend.simple.urls')),
 )
 if settings.DEBUG:
     urlpatterns += patterns(
