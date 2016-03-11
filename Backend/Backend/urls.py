@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^student/', include('student.urls')),
+    url(r'^extra_curricular/', include('extra_curricular.urls')),
     #url(r'^accounts/', include('registration.backends.simple.urls')),
     
     # user auth urls

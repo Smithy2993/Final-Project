@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'student',
+    'extra_curricular',
     #'registration', #Adding in registration capabilities
 )
 
