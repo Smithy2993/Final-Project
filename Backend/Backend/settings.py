@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'student',
     'extra_curricular',
     'module',
+    'skill',
     #'registration', #Adding in registration capabilities
 )
 

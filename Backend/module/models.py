@@ -42,6 +42,9 @@ class module(models.Model):
         )
         
         student_ID = models.ForeignKey('student.student')
-        name = models.CharField(max_length=1, choices=MODULE_NAME)
+        name = models.CharField(max_length=128, choices=MODULE_NAME)
         credits = models.CharField(max_length=2, choices=CREDITS)
         results = models.IntegerField(default=1, validators=[MaxValueValidator(100), MinValueValidator(1)])
+        
+        def __str__(self):
+                return self.student.student_ID
