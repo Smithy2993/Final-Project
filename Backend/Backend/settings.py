@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'student',
     'extra_curricular',
+    'module',
     #'registration', #Adding in registration capabilities
 )
 

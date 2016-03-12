@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^student/', include('student.urls')),
+    url(r'^module/', include('module.urls')),
     url(r'^extra_curricular/', include('extra_curricular.urls')),
     #url(r'^accounts/', include('registration.backends.simple.urls')),
     
@@ -26,3 +27,6 @@ if settings.DEBUG:
         (r'^media/(?P<path>.*)',
         'serve',
         {'document_root': settings.MEDIA_ROOT}), )
+        
+if not settings.DEBUG:
+        urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
