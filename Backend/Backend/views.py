@@ -20,10 +20,10 @@ def auth_view(request):
                 return HttpResponseRedirect('/accounts/invalid')
 
 def loggedin(request):
-        return render_to_responce('loggedin.html',{'first_name': request.user.username})
+        return render_to_response('loggedin.html',{'first_name': request.user.username})
 
 def invalid_login(request):
-        return render_to_reponse('invalid_login.html')
+        return render_to_response('invalid_login.html')
 
 def logout(request):
         auth.logout(request)

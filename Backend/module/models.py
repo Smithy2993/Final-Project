@@ -47,4 +47,4 @@ class module(models.Model):
         results = models.IntegerField(default=1, validators=[MaxValueValidator(100), MinValueValidator(1)])
         
         def __str__(self):
-                return self.student.student_ID
+                return self.student

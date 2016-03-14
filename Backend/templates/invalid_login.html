@@ -1,8 +1,19 @@
+<!DOCTYPE html>
 {% extends "base.html" %}
+        <html>
+        <head>
+                {% block title %}Invalid Login{% endblock %}
+        </head>
 
-{% block content %}
+        <body>
+		{% block content %}
 
         <h2>Your login details are invalid!</h2>
         <p>Clock <a href="/accounts/login/">here</a> to login again. </p>
 
-{% endblock %}
+		{% endblock %}
+		<footer>
+        </footer>
+
+        </body>
+</html>
