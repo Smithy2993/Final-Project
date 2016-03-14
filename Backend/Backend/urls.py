@@ -1,7 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
-#from registration.backends.simple.views import RegistrationView
 
 urlpatterns = patterns('',
     # Examples:
@@ -13,7 +12,7 @@ urlpatterns = patterns('',
     url(r'^module/', include('module.urls')),
     url(r'^skill/', include('skill.urls')),
     url(r'^extra_curricular/', include('extra_curricular.urls')),
-    #url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^user/', include('user.urls')),
     
     # user auth urls
     url(r'^accounts/login/$', 'Backend.views.login'),

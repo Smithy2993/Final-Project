@@ -38,11 +38,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'user',
     'student',
     'extra_curricular',
     'module',
     'skill',
-    #'registration', #Adding in registration capabilities
 )
 
 MIDDLEWARE_CLASSES = (
