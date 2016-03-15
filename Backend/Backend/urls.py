@@ -12,10 +12,10 @@ urlpatterns = patterns('',
     url(r'^module/', include('module.urls')),
     url(r'^skill/', include('skill.urls')),
     url(r'^extra_curricular/', include('extra_curricular.urls')),
-    url(r'^user/', include('user.urls')),
+
     
     # user auth urls
-    url(r'^accounts/login/$', 'Backend.views.login'),
+    url(r'^accounts/login/$', 'Backend.views.user_login'),
     url(r'^accounts/auth/$', 'Backend.views.auth_view'),
     url(r'^accounts/logout/$', 'Backend.views.logout'),
     url(r'^accounts/loggedin/$', 'Backend.views.loggedin'),
