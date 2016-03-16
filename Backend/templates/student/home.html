@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+	 <html>
+        <head>
+                {% block title %}Homepage{% endblock %}
+        </head>
+
+        <body>
+        {% block content %}
+        <div class = "StudentInfoMain">
+
+
+		</div>
+		<div id="Options">
+			<ul>
+				<li><a href="Home.html">Home</a></li>
+            	<li><a href="#">Add Information</a></li>
+            	<li><a href="#">View User Profile</a></li>
+            	<li><a href="#">Checklist</a></li>
+            	<li><a href="#">My Skills</a></li>
+				<li><a href="#">Leeds Network</a></li>
+        	</ul>
+		</div>
+		<div class = "Homebanner">
+
+		</div>
+		<div id = "Homebody">
+		<p>Hello {Student Name}</p>
+		<p>Welcome to your E-Profile</p>
+		<br>
+		<p>This application is intended as an aid to you during your employment endeavours.</p>
+		<p>It can be used during the process of building a curriculum vitae</p>
+		<p>You may add information of experiences you have had during your educational career</p>
+		<br>
+		<p>For any further information: </p>
+		<br>
+		<p>{Contact Details}</p>
+
+
+		</div>
+
+
+		<footer>
+
+		</footer>
+        {% endblock %}
+		</body>
+
+</html>

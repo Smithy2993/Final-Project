@@ -1,5 +1,7 @@
 from django.db import models
-from django.core.validators import MaxLengthValidator
+from django.core.validators import *
+from student.models import student
+import datetime
 
 class extra_curricular(models.Model):
         EXP = (
@@ -8,9 +10,8 @@ class extra_curricular(models.Model):
         ('VE', 'Volunteering Experience'),
         )
         
-        
-        student_ID = models.ForeignKey('student.student')
-        type_of_exp = models.CharField(max_length=1, choices=EXP)
+        user = models.OneToOneField(student)
+        type_of_exp = models.CharField(max_length=2, choices=EXP)
         name = models.CharField(max_length=128)
         role = models.CharField(max_length=128)
         start_date = models.DateField(("Start Date"), blank=True, null=False)

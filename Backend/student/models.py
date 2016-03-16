@@ -16,7 +16,6 @@ class student(models.Model):
         ('CS', 'Computer Science'),
         )
         
-        #student_ID = models.CharField(primary_key=True,max_length=9,validators=[RegexValidator(r'^\d{1,9}$')], unique = True)
         user = models.OneToOneField(User)
         student_ID = models.CharField(unique=True, max_length=9, validators=[RegexValidator(regex='^[0-9]{9,9}$', message='Must be 9 unique numbers', code='nomatch')])
         first_name = models.CharField(max_length=128)

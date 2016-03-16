@@ -6,4 +6,4 @@ def index(request):
 
 def index(request):
     context_dict = {'boldmessage': "I am bold font from the context"}
-    return render(request, 'student/index.html', context_dict)
+    return render(request, 'student/home.html', context_dict)
