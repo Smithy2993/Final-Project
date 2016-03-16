@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render_to_response, render
 from django.http import HttpResponse
 from extra_curricular.forms import extra_curricularForm
 
@@ -8,7 +8,6 @@ def index(request):
         return render(request, 'extra_curricular/index.html', context_dict)
 
 def add_extra_curricular(request):
-        context = RequestContext(request)
         
         if request.method == 'POST':
                 form = extra_curricularForm(request.POST)
@@ -23,7 +22,7 @@ def add_extra_curricular(request):
         else:
                 form = extra_curricularForm()
                 
-        return render_to_response('extra_curricular/add_experience.html', {'form': form}, context)
+        return render_to_response('extra_curricular/add_experience.html', {'form': form})
                         
                         
                  

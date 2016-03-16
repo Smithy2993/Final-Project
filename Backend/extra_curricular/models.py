@@ -10,7 +10,7 @@ class extra_curricular(models.Model):
         ('VE', 'Volunteering Experience'),
         )
         
-        user = models.OneToOneField(student)
+        student_ID = models.OneToOneField(student)
         type_of_exp = models.CharField(max_length=2, choices=EXP)
         name = models.CharField(max_length=128)
         role = models.CharField(max_length=128)

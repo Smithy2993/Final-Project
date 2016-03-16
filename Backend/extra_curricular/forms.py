@@ -10,7 +10,6 @@ class extra_curricularForm(forms.ModelForm):
         ('VE', 'Volunteering Experience'),
         )
         
-        user = forms.ManyToManyField(student)
         type_of_exp = forms.CharField(max_length=2, widget=forms.Select(choices=EXP))
         name = forms.CharField(max_length=128)
         role = forms.CharField(max_length=128)

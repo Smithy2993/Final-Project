@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Add experience</title>
-    </head>
+{% extends "base.html" %}
+     <html>
+        <head>
+                {% block title %}Add experience{% endblock %}
+        </head>
 
-    <body>
+        <body>
+        {% block content %}
         <h1>Add some experience to your profile</h1>
 
         <form id="extra_curricular_form" method="post" action="/extra_curricular/add_extra_curricular/">
@@ -22,6 +24,10 @@
 
             <input type="submit" name="submit" value="Add Experience" />
         </form>
-    </body>
+        <footer>
+
+        </footer>
+        {% endblock %}
+        </body>
 
 </html>
