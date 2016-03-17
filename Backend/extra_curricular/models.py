@@ -10,7 +10,7 @@ class extra_curricular(models.Model):
         ('VE', 'Volunteering Experience'),
         )
         
-        student_ID = models.OneToOneField(student, verbose_name="Student ID")
+        student_ID = models.ForeignKey(student, verbose_name="Student ID")
         type_of_exp = models.CharField(verbose_name="Type of experience", max_length=2, choices=EXP)
         name = models.CharField(max_length=128, verbose_name="Name")
         role = models.CharField(max_length=128, verbose_name="Role")
@@ -18,3 +18,6 @@ class extra_curricular(models.Model):
         end_date = models.DateField(("End date"), blank=True, null=False)
         Location = models.CharField(max_length=128, verbose_name="Location")
         Description = models.TextField(validators=[MaxLengthValidator(200)], verbose_name="Description")
+        
+        def __str__(self):
+                return self.name

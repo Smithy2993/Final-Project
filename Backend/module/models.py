@@ -1,4 +1,5 @@
 from django.db import models
+from student.models import student
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db.models import IntegerField, Model
 
@@ -41,10 +42,10 @@ class module(models.Model):
         ('60', '60'),
         )
         
-        student_ID = models.ForeignKey('student.student')
+        student_ID = models.ForeignKey(student, default=000000000, verbose_name="Student ID")
         name = models.CharField(max_length=128, choices=MODULE_NAME)
         credits = models.CharField(max_length=2, choices=CREDITS)
         results = models.IntegerField(default=1, validators=[MaxValueValidator(100), MinValueValidator(1)])
         
         def __str__(self):
-                return self.student
+                return self.name
