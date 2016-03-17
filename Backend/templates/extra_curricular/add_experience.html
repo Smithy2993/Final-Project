@@ -7,11 +7,25 @@
 
         <body>
         {% block content %}
+        <div class = "StudentInfoMain">
+
+
+        </div>
+        <div id="Options">
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="#">Add Information</a></li>
+                <li><a href="#">View User Profile</a></li>
+                <li><a href="#">Checklist</a></li>
+                <li><a href="#">My Skills</a></li>
+                <li><a href="#">Leeds Network</a></li>
+            </ul>
+        </div>
+
         <h1>Add some experience to your profile</h1>
 
         <form id="extra_curricular_form" method="post" action="/extra_curricular/add_extra_curricular/">
-
-            {% csrf_token %}
+        {% csrf_token %}
             {% for hidden in form.hidden_fields %}
                 {{ hidden }}
             {% endfor %}
@@ -19,7 +33,7 @@
             {% for field in form.visible_fields %}
                 {{ field.errors }}
                 {{ field.help_text }}
-                {{ field }}
+                {{field.label}} : {{ field }}<br>
             {% endfor %}
 
             <input type="submit" name="submit" value="Add Experience" />

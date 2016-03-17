@@ -3,11 +3,6 @@ from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.core.context_processors import csrf
 
-#def login(request):
-#        c = {}
-#        c.update(csrf(request))
-#        return render_to_response('login.html', c)
-
 def user_login(request):
 
     # If the request is a HTTP POST, try to pull out the relevant information.

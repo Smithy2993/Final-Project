@@ -20,5 +20,5 @@ class extra_curricularForm(forms.ModelForm):
 
         class Meta:
                 model = extra_curricular
-                fields = "__all__"
+                fields = "type_of_exp","name"
 
