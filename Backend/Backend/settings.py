@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'extra_curricular',
     'module',
     'skill',
+    'alumni',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -83,6 +84,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_L10N = True
+
+DATE_INPUT_FORMATS = ('%d-%m-%Y','%Y-%m-%d')
 
 USE_TZ = True
 

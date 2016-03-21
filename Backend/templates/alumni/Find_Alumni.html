@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
-     <html>
+        <html>
         <head>
-                {% block title %}Add experience{% endblock %}
+                {% block title %}Find Alumni{% endblock %}
         </head>
 
         <body>
@@ -22,9 +22,9 @@
             </ul>
         </div>
 
-        <h1>Add some experience to your profile</h1>
+        <h1>Find an Alumni</h1>
 
-        <form id="extra_curricular_form" method="post" action="/extra_curricular/add_extra_curricular/">
+        <form id="Find_Alumni_form" method="post" action="/alumni/Find_Alumni/">
         {% csrf_token %}
             {% for hidden in form.hidden_fields %}
                 {{ hidden }}
@@ -36,12 +36,12 @@
                 {{field.label}} : {{ field }}<br>
             {% endfor %}
 
-            <input type="submit" name="submit" value="Add Experience" />
+            <input type="submit" name="submit" value="Search" />
         </form>
-        <footer>
 
+        <footer>
         </footer>
         {% endblock %}
-        </body>
 
+        </body>
 </html>

@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^module/', include('module.urls')),
     url(r'^skill/', include('skill.urls')),
     url(r'^extra_curricular/', include('extra_curricular.urls')),
+    url(r'^alumni/', include('alumni.urls')),
 
     
     # user auth urls

@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response, render
 from django.http import HttpResponse
+from django.template import RequestContext
 from extra_curricular.forms import extra_curricularForm
 from django.core.context_processors import csrf
 
@@ -23,7 +24,7 @@ def add_extra_curricular(request):
         else:
                 form = extra_curricularForm()
                 
-        return render_to_response('extra_curricular/add_experience.html', {'form': form})
+        return render_to_response('extra_curricular/add_experience.html', {'form': form}, RequestContext(request))
                         
                         
                  
