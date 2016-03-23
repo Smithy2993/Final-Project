@@ -1,3 +1,8 @@
+# extra_curricular views.py
+
+# Import shortcuts modules aswell as the http responses
+# Import the templates and the extra_curricular forms
+# Import csrf for security purposes
 from django.shortcuts import render_to_response, render
 from django.http import HttpResponse
 from django.template import RequestContext
@@ -9,6 +14,7 @@ def index(request):
         
         return render(request, 'extra_curricular/index.html', context_dict)
 
+# Add extra_curricular method
 def add_extra_curricular(request):
         
         if request.method == 'POST':

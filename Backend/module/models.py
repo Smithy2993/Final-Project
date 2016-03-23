@@ -1,9 +1,14 @@
+#Module models.py
+
+#Import models from the db aswell as the student model for connection
+# Import validators and db.models fields
 from django.db import models
 from student.models import student
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db.models import IntegerField, Model
 
 class module(models.Model):
+        #Choices for modules and credits per module
         MODULE_NAME = (
         ('COMP1212', 'Computer Processors'),
         ('COMP1211', 'Computer Architecture'),
@@ -42,6 +47,7 @@ class module(models.Model):
         ('60', '60'),
         )
         
+        #Attributes for the module model
         student_ID = models.ForeignKey(student, default=000000000, verbose_name="Student ID")
         name = models.CharField(max_length=128, choices=MODULE_NAME)
         credits = models.CharField(max_length=2, choices=CREDITS)

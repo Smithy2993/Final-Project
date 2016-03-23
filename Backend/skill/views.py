@@ -1,3 +1,6 @@
+# skill views.py
+
+# Import shortcuts for rendering and the httpresponse
 from django.shortcuts import render
 from django.http import HttpResponse
 

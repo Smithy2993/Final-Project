@@ -1,7 +1,11 @@
+#Alumni models.py
+
+#Import the models function along with appropriate validators
 from django.db import models
 from django.core.validators import *
 
 class alumni(models.Model):
+        #Choices implemented within the models for degree, faculty, sector and employment
         DEGREE = (
         ('IT', 'Information Technology'),
         ('CS', 'Computer Science'),
@@ -48,6 +52,7 @@ class alumni(models.Model):
         )
         
         
+        #Model for Alumni will have these attributes within the django database
         first_name = models.CharField(max_length=128)
         last_name = models.CharField(max_length=128)
         course = models.CharField(max_length=30, choices=DEGREE)

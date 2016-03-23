@@ -1,6 +1,9 @@
+#Import the models from the db
 from django.db import models
 
+#Skills have all these attributes
 class skill(models.Model):
+        #Choices so far for the name attribute. More can be added at a later date
         SKILLS=(
         ('CSS', 'CSS'),
         ('Info-security', 'Information Security'),

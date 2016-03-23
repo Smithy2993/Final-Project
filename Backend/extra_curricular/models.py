@@ -1,8 +1,13 @@
+# extra_curricular models.py
+
+# Import models from the database
+# Import validators and the student model
 from django.db import models
 from django.core.validators import *
 from student.models import student
 import datetime
 
+# extra_curricular model for data input
 class extra_curricular(models.Model):
         EXP = (
         ('WE', 'Work Experience'),
