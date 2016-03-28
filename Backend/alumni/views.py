@@ -8,24 +8,51 @@ from django.http import HttpResponse
 from django.template import RequestContext
 from alumni.forms import Find_AlumniForm
 from django.core.context_processors import csrf
-    
-def index(request):
-    context_dict = {'boldmessage': "I am bold font from the context"}
-    return render(request, 'alumni/index.html', context_dict)
 
-#Find the alumni view method. This aims to search through the alumni records in the database
-#It will then return the results of the query to the user
-def Find_Alumni(request):
+        
+def alumni_search(request, form_class=Find_AlumniForm, template_name='alumni/Find_Alumni.html'):
+        form = None
         if request.method == 'POST':
-                form = Find_AlumniForm(request.POST)
-                
+                #do search
+                form = form_class(request.POST)
                 if form.is_valid():
-                        form.save(commit=True)
-                        return index(request)
-                        
-                else:
-                        print (form.errors)
-
+                        results = search(form.cleaned_data)
+                        if results:
+                                return render_to_repsonse(template_name, {'form': form, 'Alumni': results})
         else:
-                form = Find_AlumniForm()
-        return render(request, 'alumni/Find_Alumni.html', {'form': form}, RequestContext(request))
+                form = form_class()
+        return render_to_response(template_name, {'form': form})
+
+def search(search_data):
+        q = Q()
+        results = None
+        searcher = alumni_search(search_data)
+        
+        for key in search_data.iterkeys():
+                dispatch = getattr(searcher, 'search_%s' % key)
+                q = dispatch(q)
+        if q and len(q):
+                results = alumni.objects.filter(q).select_related()
+        #.order_by('-pk')
+        else:
+                results = []
+        return results
+
+class AlumniSearch(object):
+        def __init__(self, search_data):
+                self.__dict__.update(search_data)
+        
+        def search_keywords(self, q):
+                if self.keywords:
+                        words = self.keywords.split()
+                        first_name_q = Q()
+                        last_name_q = Q()
+                        for word in words:
+                                first_name_q = first_name_q | Q(first_name__icontains=word)
+                                last_name_q = last_name_q | Q(last_name__icontains=word)
+                        keyword_q = first_name_q | last_name_q
+                        q = q & keyword_q
+                return q
+                                
+                        
+        

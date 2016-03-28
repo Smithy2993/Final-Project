@@ -7,6 +7,5 @@ from alumni import views
 
 #Url patterns to map templates 
 urlpatterns = patterns('',
-        url(r'^$', views.index, name='index'),
         #Adding the find alumni page to the server usage
-        url(r'^Find_Alumni', views.Find_Alumni, name='Find_Alumni'),)
+        url(r'^Find_Alumni', views.alumni_search, name='Find_Alumni'),)

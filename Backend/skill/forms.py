@@ -1,10 +1,11 @@
-# skill models.py
-#Import the models from the db
-from django.db import models
-from student.models import student
+# skill forms.py
 
-#Skills have all these attributes
-class skill(models.Model):
+# Import forms
+# Import the skill model
+from django import forms
+from skill.models import skill
+
+class skillForm(forms.ModelForm):
         #Choices so far for the name attribute. More can be added at a later date
         SKILLS=(
         ('CSS', 'CSS'),
@@ -19,9 +20,9 @@ class skill(models.Model):
         ('PHP', 'PHP'),
         )
 
-        student_ID = models.ForeignKey(student, verbose_name="Student ID")
-        name = models.CharField(max_length=128, choices=SKILLS)
-        additional = models.CharField(max_length=128, blank = True)
+        name = forms.CharField(max_length=128, widget=forms.Select(choices=SKILLS))
+        additional = forms.CharField(max_length=128)
         
-        def __str__(self):
-                return self.name
+        class Meta:
+                model = skill
+                fields = "name", "additional"
