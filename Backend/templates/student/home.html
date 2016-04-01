@@ -13,7 +13,7 @@
 		</div>
 		<div id="Options">
 			<ul>
-				<li><a href="Home.html">Home</a></li>
+				<li><a href="/student/">Home</a></li>
             	<li><a href="/extra_curricular/add_extra_curricular/">Add Information</a></li>
             	<li><a href="#">View User Profile</a></li>
             	<li><a href="#">Checklist</a></li>
@@ -22,13 +22,11 @@
         	</ul>
 		</div>
 		<div class = "Homebanner">
-		{% for infobox in student_info %}
-			<p>{{ infobox.student_ID }}</p>
-			<p>{{ infobox.first_name }}</p>
-			<p>{{ infobox.last_name }}</p>
-			<p>{{ infobox.year }}</p>
-			<p>{{ infobox.degree }}</p>
-		{% endfor %}
+			<p>{{ user.username }}</p>
+            <p>{{ person.student_ID }}</p>
+            <p>{{ person.last_name }}</p>
+            <p>{{ person.year }}</p>
+            <p>{{ person.degree }}</p>
 
 		</div>
 		<div id = "Homebody">
