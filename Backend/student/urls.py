@@ -5,4 +5,5 @@ from django.conf.urls import patterns, url
 from student import views
 
 urlpatterns = patterns('',
-        url(r'^(?P<username>[a-zA-Z0-9]+)$', views.index, name='index'))
+        url(r'^(?P<username>[a-zA-Z0-9]+)$', views.index, name='index'),
+        url(r'^$', views.profile, name='profile'))
