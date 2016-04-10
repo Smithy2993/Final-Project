@@ -6,4 +6,4 @@ from student import views
 
 urlpatterns = patterns('',
         url(r'^(?P<username>[a-zA-Z0-9]+)$', views.index, name='index'),
-        url(r'^$', views.profile, name='profile'))
+        url(r'^profile/(?P<username>[a-zA-Z0-9]+)$', views.profile, name='profile'))

@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, render
+from django.shortcuts import render_to_response, render, redirect
 from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.core.context_processors import csrf
@@ -8,7 +8,7 @@ def user_login(request):
 
     # If the request is a HTTP POST, pull the information required
     if request.method == 'POST':
-        # Take in the username and password given by the user in the login form.
+        # Take in the username and password given by the user in the loginform.
         username = request.POST.get('username')
         password = request.POST.get('password')
 
@@ -23,7 +23,7 @@ def user_login(request):
                 # If the account is valid and active, we can log the user in.
                 # Sends the user to the homepage
                 login(request, user)
-                return HttpResponseRedirect('/student/')
+                return HttpResponseRedirect('/student/(?P<username>[a-zA-Z0-9]+)$/')
             else:
                 # An inactive account was used - The user cannot login
                 return HttpResponse("Your Student account is disabled.")
@@ -44,7 +44,7 @@ def auth_view(request):
         
         if user is not None:
                 auth.login(request, user)
-                return HttpResponseRedirect('/student/')
+                return redirect('student.views.index', username=username)
         else:
                 return HttpResponseRedirect('/accounts/invalid')
 

@@ -10,7 +10,7 @@ class Find_AlumniForm(forms.ModelForm):
         #Choices implemented within the models for degree, faculty, sector and employment
         #Used for drop down menu's with a list of choices for each option
         DEGREE = (
-        ('IT', 'Information Technology'),
+        ('IT', 'IT'),
         ('CS', 'Computer Science'),
         )
         FACULTY = (

@@ -7,7 +7,7 @@ from django.core.validators import *
 class alumni(models.Model):
         #Choices implemented within the models for degree, faculty, sector and employment
         DEGREE = (
-        ('IT', 'Information Technology'),
+        ('IT', 'IT'),
         ('CS', 'Computer Science'),
         )
         FACULTY = (

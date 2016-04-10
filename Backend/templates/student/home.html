@@ -8,8 +8,15 @@
         <body>
         {% block content %}
         <div class = "StudentInfoMain">
+        <div id = "StudentInfoInner">
+        	<p>Username: {{ user.username }}</p>
+            <p>Student ID:{{ person.student_ID }}</p>
+            <p>Student first name:{{ person.first_name}}</p>
+            <p>Student last name: {{ person.last_name }}</p>
+            <p>Study Level: {{ person.year }}</p>
+            <p>Student Course: {{ person.degree }}</p>
 
-
+        </div>
 		</div>
 		<div id="Options">
 			<ul>
@@ -22,15 +29,9 @@
         	</ul>
 		</div>
 		<div class = "Homebanner">
-			<p>{{ user.username }}</p>
-            <p>{{ person.student_ID }}</p>
-            <p>{{ person.last_name }}</p>
-            <p>{{ person.year }}</p>
-            <p>{{ person.degree }}</p>
-
 		</div>
 		<div id = "Homebody">
-		<p>Hello {Student Name}</p>
+		<p>Hello {{person.first_name}}</p>
 		<p>Welcome to your E-Profile</p>
 		<br>
 		<p>This application is intended as an aid to you during your employment endeavours.</p>
@@ -39,7 +40,6 @@
 		<br>
 		<p>For any further information: </p>
 		<br>
-		<p>{Contact Details}</p>
 
 
 		</div>

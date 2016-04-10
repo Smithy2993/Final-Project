@@ -204,6 +204,22 @@ footer p{
     position: center;
 
 }
+#StudentInfoInner{
+	height: 200px;
+	width: 50%;
+	background-color: #212121;
+	position: center;
+	padding: 10px;
+	margin: auto;
+	border-radius: 25px;
+
+}
+#StudentInfoInner p{
+	text-align: left;
+    color: white;
+    font-family: 'Ubuntu', 'Lato', sans-serif;
+    padding-left: 250px;
+}
 #Options{
     padding:3px;
     list-style-type:none;   

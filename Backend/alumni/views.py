@@ -7,6 +7,7 @@ from django.shortcuts import render_to_response, render
 from django.http import HttpResponse
 from django.template import RequestContext
 from alumni.forms import Find_AlumniForm
+from django.db.models import Q
 from django.core.context_processors import csrf
 
         
@@ -18,10 +19,10 @@ def alumni_search(request, form_class=Find_AlumniForm, template_name='alumni/Fin
                 if form.is_valid():
                         results = search(form.cleaned_data)
                         if results:
-                                return render_to_repsonse(template_name, {'form': form, 'Alumni': results})
+                                return render(request, template_name, {'form': form, 'Alumni': results})
         else:
                 form = form_class()
-        return render_to_response(template_name, {'form': form})
+        return render(request, template_name, {'form': form})
 
 def search(search_data):
         q = Q()
@@ -39,8 +40,9 @@ def search(search_data):
         return results
 
 class AlumniSearch(object):
+        dictionary = []
         def __init__(self, search_data):
-                self.__dict__.update(search_data)
+                self.dictionary.update(search_data)
         
         def search_keywords(self, q):
                 if self.keywords:
