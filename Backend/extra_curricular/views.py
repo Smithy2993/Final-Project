@@ -8,11 +8,14 @@ from django.http import HttpResponse
 from django.template import RequestContext
 from extra_curricular.forms import extra_curricularForm
 from django.core.context_processors import csrf
+from django.contrib.auth.models import User
+from student.models import student
 
-def index(request):
-        context_dict = {'boldmessage' : "I am bold font from the context"}
-        
-        return render(request, 'extra_curricular/index.html', context_dict)
+# Information box displayed on each page  
+def index(request, username):
+    user = student.views.index(username=username)
+    person = student.objects.get(user=user)
+    return render(request, 'extra_curricular/add_experience.html', {"person":person})
 
 # Add extra_curricular method
 def add_extra_curricular(request):

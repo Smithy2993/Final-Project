@@ -7,12 +7,12 @@ import csv
 from django.utils.encoding import smart_str
 from django.http import HttpResponse
 
-
+#Export the experience user model
 def export_csv(modeladmin, request, queryset):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=myexperiencemodel.csv'
     writer = csv.writer(response, csv.excel)
-    response.write(u'\ufeff'.encode('utf8')) # BOM (optional...Excel needs it to open UTF-8 file properly)
+    response.write(u'\ufeff'.encode('utf8'))
     writer.writerow([
         smart_str(u"Student ID"),
         smart_str(u"Type of Experience"),

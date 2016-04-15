@@ -9,18 +9,37 @@
         {% block content %}
         <div class = "StudentInfoMain">
         <div id = "StudentInfoInner">
-        	<p>Username: {{ user.username }}</p>
-            <p>Student ID:{{ person.student_ID }}</p>
-            <p>Student first name:{{ person.first_name}}</p>
-            <p>Student last name: {{ person.last_name }}</p>
-            <p>Study Level: {{ person.year }}</p>
-            <p>Student Course: {{ person.degree }}</p>
-
+        	<table border="0" style="width:85%" align="right">
+  				<tr>
+    				<td>Username:</td>
+    				<td>{{ user.username }}</td> 
+  				</tr>
+  				<tr>
+    				<td>Student ID:</td>
+    				<td>{{ person.student_ID }}</td> 
+  				</tr>
+  				<tr>
+    				<td>First name:</td>
+    				<td>{{ person.first_name}}</td> 
+  				</tr>
+  				<tr>
+    				<td>Last name:</td>
+    				<td>{{ person.last_name }}</td> 
+  				</tr>
+  				<tr>
+    				<td>Study Level:</td>
+    				<td>{{ person.year }}</td> 
+  				</tr>
+  				<tr>
+    				<td>Student Course:</td>
+    				<td>{{ person.degree }}</td> 
+  				</tr>
+			</table>
         </div>
 		</div>
 		<div id="Options">
 			<ul>
-				<li><a href="/student/">Home</a></li>
+				<li><a href="/student/{{ user.username }}">Home</a></li>
             	<li><a href="/extra_curricular/add_extra_curricular/">Add Information</a></li>
             	<li><a href="#">View User Profile</a></li>
             	<li><a href="#">Checklist</a></li>

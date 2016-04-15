@@ -20,10 +20,10 @@ def index(request, username):
 def profile(request, username):
         user = User.objects.get(username=username)
         person = student.objects.get(user=user)
-        experience = extra_curricular.objects.get(student_ID=student_ID)
-        module = module.objects.get(user=user)
-        skill = skill.objects.get(user=user)
-        return render(request, 'student/profile.html', {"person":person}, {"experience":experience}, {"module":module}, {"skill":skill})
+        #experience = extra_curricular.objects.get(student_ID=student_ID)
+        #module = module.objects.get(user=user)
+        #skill = skill.objects.get(user=user)
+        return render(request, 'student/profile.html', {"person":person})
         
 
   

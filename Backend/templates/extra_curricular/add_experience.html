@@ -8,8 +8,34 @@
         <body>
         {% block content %}
         <div class = "StudentInfoMain">
-
-
+        <div id = "StudentInfoInner">
+            <table border="0" style="width:85%" align="right">
+                <tr>
+                    <td>Username:</td>
+                    <td>{{ user.username }}</td> 
+                </tr>
+                <tr>
+                    <td>Student ID:</td>
+                    <td>{{ person.student_ID }}</td> 
+                </tr>
+                <tr>
+                    <td>First name:</td>
+                    <td>{{ person.first_name}}</td> 
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td>{{ person.last_name }}</td> 
+                </tr>
+                <tr>
+                    <td>Study Level:</td>
+                    <td>{{ person.year }}</td> 
+                </tr>
+                <tr>
+                    <td>Student Course:</td>
+                    <td>{{ person.degree }}</td> 
+                </tr>
+            </table>
+        </div>
         </div>
         <div id="Options">
             <ul>

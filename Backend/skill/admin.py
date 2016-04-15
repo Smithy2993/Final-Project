@@ -7,6 +7,7 @@ import csv
 from django.utils.encoding import smart_str
 from django.http import HttpResponse
 
+#Export the skills user model
 def export_csv(modeladmin, request, queryset):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=myskillsmodel.csv'
