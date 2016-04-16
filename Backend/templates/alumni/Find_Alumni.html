@@ -8,6 +8,37 @@
         <body>
         {% block content %}
         <div class = "StudentInfoMain">
+        <div id = "StudentInfoInner">
+            <div id = "profilephoto">
+                <img src="{{ person.photo.url }}" height="200" width="200 border="1" ">
+            </div>
+            <table border="0" align="right">
+                <tr>
+                    <td>Username:</td>
+                    <td>{{ user.username }}</td> 
+                </tr>
+                <tr>
+                    <td>Student ID:</td>
+                    <td>{{ person.student_ID }}</td> 
+                </tr>
+                <tr>
+                    <td>First name:</td>
+                    <td>{{ person.first_name}}</td> 
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td>{{ person.last_name }}</td> 
+                </tr>
+                <tr>
+                    <td>Study Level:</td>
+                    <td>{{ person.year }}</td> 
+                </tr>
+                <tr>
+                    <td>Student Course:</td>
+                    <td>{{ person.degree }}</td> 
+                </tr>
+            </table>
+        </div>
 
 
         </div>
@@ -31,16 +62,24 @@
             {% endfor %}
 
             {% for field in form.visible_fields %}
-                {{ field.errors }}
-                {{ field.help_text }}
-                {{field.label}} : {{ field }}<br>
+            <table border="1" style="width:50%" align="left">
+                <tr>
+                    <td>{{field.label}}: </td>
+                    <td>{{ field }}<br></td>  
+                </tr>
+
+            </table>
             {% endfor %}
 
             <input type="submit" name="submit" value="Search" />
         </form>
-
-        <footer>
-        </footer>
+         <div id = "Find_alumni_text">
+        <p>View your search results:</p>
+        </div>
+         <div id = "search_results">
+            
+            {{ skill.name }}
+        </div>
         {% endblock %}
 
         </body>

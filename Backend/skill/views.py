@@ -5,12 +5,10 @@ from django.shortcuts import render_to_response, render
 from django.http import HttpResponse
 from django.template import RequestContext
 from skill.forms import skillForm
+from skill.models import skill
+from student.models import student
+from django.contrib.auth.models import User
 from django.core.context_processors import csrf
-
-def index(request):
-     context_dict = {'boldmessage': "student skills"}
-     
-     return render(request, 'skill/index.html', context_dict)
 
 def add_skill(request):
         
@@ -28,3 +26,10 @@ def add_skill(request):
                 form = skillForm()
                 
         return render_to_response('skill/add_skill.html', {'form': form}, RequestContext(request))
+
+def index(request, username):
+    user = student.views.index(username=username)
+    skills = skill.objects.get(user=user)
+    person = student.objects.get(user=user)
+    
+    return render(request, 'skill/add_skill.html', {"person":person},{"skill",skill})
