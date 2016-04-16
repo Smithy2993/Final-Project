@@ -44,6 +44,12 @@ class StudentAdmin(admin.ModelAdmin):
         list_display = ('first_name','middle_name','last_name')
         actions = [export_csv]
 
+#Upload image with users student ID appended as name
+def update_filename(instance, filename):
+    path = "upload/path/"
+    format = student.student_ID + instance.file_extension
+    return os.path.join(path, format)
+
 #Register the student model along with the admin preferences
 admin.site.register(student, StudentAdmin)
 

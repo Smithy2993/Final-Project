@@ -24,6 +24,7 @@ def profile(request, username):
         #module = module.objects.get(user=user)
         #skill = skill.objects.get(user=user)
         return render(request, 'student/profile.html', {"person":person})
+
         
 
   

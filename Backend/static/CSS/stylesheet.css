@@ -218,7 +218,9 @@ h1{
 	margin: auto;
   	position: absolute;
   	top: 0; left: 0; bottom: 0; right: 0;
-	border-radius: 20px;
+	border-radius: 10px;
+	display: flex;
+	opacity: 0.9;
 
 }
 #StudentInfoInner table{
@@ -226,8 +228,8 @@ h1{
     font-family: 'Ubuntu', 'Lato', sans-serif;
     text-align: right;
     border-collapse: separate;
-    border-spacing: 10px 20px;
-    padding-right: 30px;
+    border-spacing: 80px 20px;
+    display: inline-block;
 
 }
 #StudentInfoInner p{
@@ -271,13 +273,16 @@ h1{
 #Homebody{
     height: 600px;
     width: 100%;
+    display: flex;
+    text-align: center;
 }
 #Homebody p{
-    text-align: left;
     color: white;
     font-family: 'Ubuntu', 'Lato', sans-serif;
-    padding-left: 30px;
-    margin-top: 10px;
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+    margin-top: 20px;
+    display: inline-block;
 
 }
 #extra_curricular_form input[type=text] {
@@ -285,4 +290,38 @@ h1{
     margin: 0 auto; 
 	width:250px;
     box-sizing: border-box;
+}
+#profilephoto{
+	padding-left: 20px;
+	padding-top: 25px;
+	border-radius: 25px;
+
+}
+#Homebarleft{
+	height: 100%;
+	width: 15%;
+	background-color: white;
+
+}
+#Homebarright{
+	height: 100%;
+	width: 15%;
+	background-color: white;
+	display: inline-block;
+
+}
+#Homecontactboxflex{
+	width: 100%;
+	margin: 0 auto;
+	height: 150px;
+	padding-top: 50px;
+}
+#Homecontactbox{
+	background-color: #B31B1B;
+	width: 200px;
+	height: 100%;
+	margin: 0 auto;
+	display: inline-block;
+	border-radius: 10%;
+
 }

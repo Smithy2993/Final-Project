@@ -9,7 +9,10 @@
         {% block content %}
         <div class = "StudentInfoMain">
         <div id = "StudentInfoInner">
-        	<table border="0" style="width:85%" align="right">
+        <div id = "profilephoto">
+        <img src="{{ person.photo.url }}" height="200" width="200 border="1" ">
+        </div>
+        	<table border="0" align="right">
   				<tr>
     				<td>Username:</td>
     				<td>{{ user.username }}</td> 
@@ -50,7 +53,10 @@
 		<div class = "Homebanner">
 		</div>
 		<div id = "Homebody">
+		<div id = "Homebarleft"></div>
+		<div id = "HomeContent">
 		<p>Hello {{person.first_name}}</p>
+		<br>
 		<p>Welcome to your E-Profile</p>
 		<br>
 		<p>This application is intended as an aid to you during your employment endeavours.</p>
@@ -59,14 +65,23 @@
 		<br>
 		<p>For any further information: </p>
 		<br>
+		<div id = "Homecontactboxflex">
+		<div id = "Homecontactbox">
+			
+		</div>
+		<div id = "Homecontactbox">
+			
+		</div>
+		<div id = "Homecontactbox">
+			
+		</div>
+		</div>
+		</div>
+		<div id = "Homebarright"></div>
 
 
 		</div>
 
-
-		<footer>
-
-		</footer>
         {% endblock %}
 		</body>
 
