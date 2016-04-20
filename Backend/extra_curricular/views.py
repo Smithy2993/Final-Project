@@ -4,10 +4,11 @@
 # Import the templates and the extra_curricular forms
 # Import csrf for security purposes
 from django.shortcuts import render_to_response, render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from extra_curricular.forms import extra_curricularForm
-from django.core.context_processors import csrf
+from extra_curricular.models import extra_curricular
+from django.template.context_processors import csrf
 from django.contrib.auth.models import User
 from student.models import student
 
@@ -18,22 +19,49 @@ def index(request, username):
     return render(request, 'extra_curricular/add_experience.html', {"person":person})
 
 # Add extra_curricular method
-def add_extra_curricular(request):
-        
-        if request.method == 'POST':
-                form = extra_curricularForm(request.POST)
-                
-                if form.is_valid():
-                        form.save(commit=True)
-                        return index(request)
-                        
-                else:
-                        print (form.errors)
+def add_extra_curricular(request, username):
 
+    user = User.objects.get(username=username)
+    person = student.objects.get(user=user)
+
+    if request.method == 'POST':
+        form = extra_curricularForm(request.POST)
+        context_dict = {'person': person, 'form':form}
+        
+        
+        if form.is_valid():
+                #form.fields['student_ID'].queryset = student.objects.get(id = student_ID)
+                form.save(commit=True)
+                return render(request, 'student/home.html', {"person":person})
         else:
-                form = extra_curricularForm()
-                
-        return render_to_response('extra_curricular/add_experience.html', {'form': form}, RequestContext(request))
+            print (form.errors)
+
+    else:
+        form = extra_curricularForm()
+        context_dict = {'person': person, 'form':form}    
+    return render_to_response('extra_curricular/add_experience.html', context_dict, RequestContext(request))
+
+def viewexperience(request, student_ID):
+        sid = student.views.index(student_ID=student_ID)
+        experience = extra_curricular.objects.get(sid=sid)
+        return render(request, 'extra_curricular/add_experience.html', {"experience":experience})
+
+
+def experienceprofile(request, username):
+        user = User.objects.get(username=username)
+        person = student.objects.get(user=user)
+        experience = extra_curricular.objects.get(person)
+        return render(request, 'student/profile.html', {"person":person[0],})
+        
+def edit_extra_curricular(request, username):
+        user = User.objects.get(username=username)
+        person = student.objects.get(user=user)
+        return render(request, 'extra_curricular/edit_experience.html', {"person":person})
+    
+def delete_extra_curricular(request, username):
+    user = User.objects.get(username=username)
+    person = student.objects.get(user=user)
+    return render(request, 'extra_curricular/delete_experience.html', {"person":person})
                         
                         
                  

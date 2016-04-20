@@ -38,7 +38,7 @@ h1{
 #Navbar li {
     float: left;
     font-family: 'Ubuntu', 'Lato', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 #Navbar li a {
@@ -204,7 +204,7 @@ h1{
 	color: white;
 }
 .StudentInfoMain{
-    background-image: url("http://www.iq-student-accommodation.com/sites/default/files/Leeds-uni-building.jpg");
+    background-image: url("http://www.meetinleeds.co.uk/wp-content/uploads/2014/06/University-Square-and-Parkinson1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height:300px;
@@ -242,7 +242,7 @@ h1{
     padding:3px;
     list-style-type:none;   
     font-family: 'Ubuntu', 'Lato', sans-serif;
-    font-size:15px;
+    font-size:13px;
     text-align:center;
     line-height:30px;
     background-color: #B31B1B;
@@ -252,7 +252,7 @@ h1{
     text-decoration:none;
     display:block;
     text-align:center;
-    margin:0px 60px;
+    margin:0px 85px;
 }
 #Options a:hover{
     color:#000000;
@@ -262,13 +262,6 @@ h1{
 }
 #Options li{
     display: inline-block;
-}
-.Homebanner{
-    background-image: url("http://www.savethegraduate.org/uploads/online-job-application.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height:350px;
-    position: center;
 }
 #Homebody{
     height: 600px;
@@ -294,15 +287,17 @@ h1{
 #Homebarleft{
 	height: 100%;
 	width: 15%;
-	background-color: white;
-	opacity: 0.5;
+	background-image: url("http://www.leedsisc.com/-/media/ISC/Leeds/Images/Carousel%20Slides/Leeds%20Uni/fees%202.jp");
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 #Homebarright{
-	height: 100%;
-	width: 15%;
-	background-color: white;
-	opacity: 0.5;
+    height: 100%;
+    width: 15%;
+    background-image: url("http://www.leedsisc.com/-/media/ISC/Leeds/Images/Carousel%20Slides/Leeds%20Uni/fees%202.jp");
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 #Homecontactboxflex{
@@ -337,10 +332,19 @@ h1{
 #current_skills{
 	background-color: white;
 	width: 75%;
-	height: 300px;
+	height: 500px;
 	margin: 0 auto;
 	border-radius: 15px;
 	margin-bottom: 30px;
+}
+#current_experience{
+    background-color: white;
+    width: 75%;
+    margin-top: 20px;
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
 }
 #skilltext{
 	padding-left:15%;
@@ -352,6 +356,7 @@ h1{
 }
 #search_results{
 	background-color: white;
+    padding-top: 20px;
 	width: 75%;
 	height: 300px;
 	margin: 0 auto;
@@ -362,4 +367,96 @@ h1{
 	padding-left:15%;
 	color: white;
     font-family: 'Ubuntu', 'Lato', sans-serif;
+}
+#profilemain{
+	width: 100%;
+	height: 1200px;
+
+}
+#profilemain p{
+	padding-left: 5%;
+	padding-top: 10px;
+	color: white;
+    font-family: 'Ubuntu', 'Lato', sans-serif;
+
+}
+#profilesummarybox{
+	height: 80%;
+	width: 90%;
+	border-radius: 5px;
+	margin: 0 auto;
+	margin-top: 10px;
+	border:1px solid white;
+
+}
+#profilemainphoto{
+	display: block;
+	margin-left: auto;
+	padding-left: 40%;
+	margin-right: auto;
+	padding-top: 30px;
+}
+#profilesummarybox table{
+	color: white;
+    font-family: 'Ubuntu', 'Lato', sans-serif;
+    text-align: center;
+    border-spacing: 300px 10px;
+
+}
+#profiletablehori table{
+	width: 100%;
+	color: white;
+    font-family: 'Ubuntu', 'Lato', sans-serif;
+    text-align: center;
+    border-spacing: 100px 10px;
+}
+#editdelete{
+    margin: 0 auto;
+    list-style-type:none;   
+    font-family: 'Ubuntu', 'Lato', sans-serif;
+    font-size:13px;
+    text-align:center;
+    line-height:30px;
+    padding-left: 25%;
+
+
+}
+#editdelete a {
+    color:#FFF;
+    text-decoration:none;
+    text-align:center;
+    margin:0px 100px;
+}
+#editdelete a:hover{
+    color:#000000;
+}
+#editdelete ul{
+    text-align:left;
+}
+#editdelete li{
+    display: inline-block;
+    border: 1px solid white;
+}
+#experiencemain p{
+    margin-left: 200px;
+    font-family: 'Ubuntu', 'Lato', sans-serif;
+    font-size:14px;
+    color: white;
+
+
+}
+#show_alumni_table table{
+    width: 100%;
+    color: black;
+    font-family: 'Ubuntu', 'Lato', sans-serif;
+    text-align: center;
+    border-spacing: 70px 10px;
+}
+#current_experience table{
+    width: 100%;
+    font-family: 'Ubuntu', 'Lato', sans-serif;
+    text-align: center;
+    border-spacing: 70px 10px;
+
+
 }

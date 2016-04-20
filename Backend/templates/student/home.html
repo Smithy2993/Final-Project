@@ -42,15 +42,12 @@
 		</div>
 		<div id="Options">
 			<ul>
-				<li><a href="/student/{{ username }}">Home</a></li>
-            	<li><a href="/extra_curricular/add_extra_curricular/">Add Information</a></li>
-            	<li><a href="#">View User Profile</a></li>
-            	<li><a href="#">Checklist</a></li>
-            	<li><a href="/skill/add_skill/">My Skills</a></li>
+				<li><a href="/student/{{ user.username }}">Home</a></li>
+        <li><a href="/extra_curricular/add_extra_curricular/{{ user.username }}">Add Information</a></li>
+        <li><a href="/student/profile/{{ user.username }}">View User Profile</a></li>
+        <li><a href="/skill/add_skill/{{ user.username }}">My Skills</a></li>
 				<li><a href="/alumni/Find_Alumni/">Contact Alumni</a></li>
-        	</ul>
-		</div>
-		<div class = "Homebanner">
+      </ul>
 		</div>
 		<div id = "Homebody">
 		<div id = "Homebarleft"></div>

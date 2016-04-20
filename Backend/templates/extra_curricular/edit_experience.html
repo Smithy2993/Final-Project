@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
-        <html>
+     <html>
         <head>
-                {% block title %}Find Alumni{% endblock %}
+                {% block title %}Edit experience{% endblock %}
         </head>
 
         <body>
@@ -39,8 +39,6 @@
                 </tr>
             </table>
         </div>
-
-
         </div>
         <div id="Options">
             <ul>
@@ -49,47 +47,18 @@
                 <li><a href="/student/profile/{{ user.username }}">View User Profile</a></li>
                 <li><a href="/skill/add_skill/{{ user.username }}">My Skills</a></li>
                 <li><a href="/alumni/Find_Alumni/">Contact Alumni</a></li>
-            </ul>
+      </ul>
+        </div>
+        <div id = "experiencemain">
         </div>
 
-        <h1>Find an Alumni</h1>
-
-        <form id="searchform" action="{% url 'find_alumni' %}" method="get" accept-charset="utf-8">
-        <button class="searchbutton" type="submit">
-        <i class="fa fa-search"></i>
-        </button>
-        <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
-        </form>
-        <div id = "Find_alumni_text">
-        <p>View your search results:</p>
+        <p>{{ person.first_name}}'s current experience: </p>
+        <div id = "current_experience">
+            
+            {{ skill.name }}
         </div>
-         <div id = "search_results">
-
-         <div id = "show_alumni_table">
-                <table border="0" align="center">
-                <tr>
-                    <th>First Name</th>
-                    <th>Last name</th>
-                    <th>Course</th>
-                    <th>Faculty</th>
-                    <th>Sector</th>
-                    <th>Self-Employed?</th>
-                </tr>
-        {% for show_alumni in alumni_detail %}
-                <tr>
-                    <td>{{ show_alumni.first_name }}</td>
-                    <td>{{ show_alumni.last_name }}</td>
-                    <td>{{ show_alumni.course}}</td>
-                    <td>{{ show_alumni.faculty }}</td>
-                    <td>{{ show_alumni.sector }}</td>
-                    <td>{{ show_alumni.self_employed }}</td>
-                </tr>
-                </table>
-        </div>
-                {% endfor %}
-
         </div>
         {% endblock %}
-
         </body>
+
 </html>

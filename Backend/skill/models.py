@@ -20,7 +20,7 @@ class skill(models.Model):
         )
 
         student_ID = models.ForeignKey(student, verbose_name="Student ID")
-        name = models.CharField(max_length=128, choices=SKILLS)
+        name = models.CharField(max_length=128, blank = True, choices=SKILLS)
         additional = models.CharField(max_length=128, blank = True)
         
         def __str__(self):

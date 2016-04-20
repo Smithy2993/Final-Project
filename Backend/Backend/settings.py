@@ -24,11 +24,7 @@ SECRET_KEY = 'k8y7kjpdhf#s%oyq3&^x)@qnmtqyg4j==!ra+1&k+@s)m%z+zz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
-
-TEMPLATE_DIRS = (TEMPLATE_PATH,)
 
 ALLOWED_HOSTS = []
 # Application definition
@@ -59,6 +55,23 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'Backend.urls'
+
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [TEMPLATE_PATH],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 WSGI_APPLICATION = 'Backend.wsgi.application'
 

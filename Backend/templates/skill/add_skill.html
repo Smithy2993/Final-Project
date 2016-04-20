@@ -42,24 +42,19 @@
         </div>
         <div id="Options">
             <ul>
-                <li><a href="/student/">Home</a></li>
-                <li><a href="/extra_curricular/add_extra_curricular/">Add Information</a></li>
-                <li><a href="#">View User Profile</a></li>
-                <li><a href="#">Checklist</a></li>
-                <li><a href="/skill/add_skill/">My Skills</a></li>
+                <li><a href="/student/{{ user.username }}">Home</a></li>
+                <li><a href="/extra_curricular/add_extra_curricular/{{ user.username }}">Add Information</a></li>
+                <li><a href="/student/profile/{{ user.username }}">View User Profile</a></li>
+                <li><a href="/skill/add_skill/{{ user.username }}">My Skills</a></li>
                 <li><a href="/alumni/Find_Alumni/">Contact Alumni</a></li>
             </ul>
         </div>
 
-        <h1>Add some experience to your profile</h1>
+        <h1>Add some skills to your profile</h1>
         <div id = "skillform">
-        <form id="skill_form" method="post" action="/skill/add_skill/">
-        {% csrf_token %}
-            {% for hidden in form.hidden_fields %}
-                {{ hidden }}
-            {% endfor %}
-
-            {% for field in form.visible_fields %}
+        <form id="skillForm" method="POST">
+            {% csrf_token %}
+            <!-- {% for field in form.visible_fields %}
             <table border="1" style="width:50%" align="left">
                 <tr>
                     <td>{{field.label}}: </td>
@@ -67,8 +62,8 @@
                 </tr>
 
             </table>
-            {% endfor %}
-
+            {% endfor %} -->
+            {{ form.as_p }}
             <input type="submit" name="submit" value="Add skill" />
         </form>
         </div>
@@ -78,6 +73,12 @@
          <div id = "current_skills">
             
             {{ skill.name }}
+        </div>
+        <div id = "editdelete">    
+            <ul> 
+                <li><a href="/skill/add_skill/{{ user.username }}">Edit experience</a></li>
+                <li><a href="/alumni/Find_Alumni/">Delete experience</a></li>
+            </ul>
         </div>
         {% endblock %}
         </body>

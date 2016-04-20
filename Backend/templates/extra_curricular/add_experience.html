@@ -42,34 +42,53 @@
         </div>
         <div id="Options">
             <ul>
-                <li><a href="/student/">Home</a></li>
-                <li><a href="#">Add Information</a></li>
-                <li><a href="#">View User Profile</a></li>
-                <li><a href="#">Checklist</a></li>
-                <li><a href="/skill/add_skill/">My Skills</a></li>
+                <li><a href="/student/{{ user.username }}">Home</a></li>
+                <li><a href="/extra_curricular/add_extra_curricular/{{ user.username }}">Add Information</a></li>
+                <li><a href="/student/profile/{{ user.username }}">View User Profile</a></li>
+                <li><a href="/skill/add_skill/{{ user.username }}">My Skills</a></li>
                 <li><a href="/alumni/Find_Alumni/">Contact Alumni</a></li>
-            </ul>
+      </ul>
         </div>
-
+        <div id = "experiencemain">
         <h1>Add some experience to your profile</h1>
         <div id = "experienceform">
-        <form id="extra_curricular_form" method="post" action="/extra_curricular/add_extra_curricular/">
-        {% csrf_token %}
-            {% for hidden in form.hidden_fields %}
-                {{ hidden }}
-            {% endfor %}
-
-            {% for field in form.visible_fields %}
-            <table border="1" style="width:50%" align="left">
-                <tr>
-                    <td>{{field.label}}: </td>
-                    <td>{{ field }}<br></td>  
-                </tr>
-
-            </table>
-            {% endfor %}
+        <form id="extra_curricularForm" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
             <input type="submit" name="submit" value="Add Experience" />
         </form>
+        </div>
+
+        <p>{{ person.first_name}}'s current experience: </p>
+        <div id = "current_experience">
+                <table border="0" align="center">
+                <tr>
+                    <th>Type of Experience</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>{{ experience.type_of_exp }}</td>
+                    <td>{{ experience.name }}</td>
+                    <td>{{ experience.role }}</td>
+                    <td>{{ experience.start_date }}</td>
+                    <td>{{ experience.end_date }}</td>
+                    <td>{{ experience.Location }}</td>
+                    <td>{{ experience.Description }}</td>
+                </tr>
+                </table>
+        </div>
+        </div>
+        <div id = "editdelete">    
+            <ul> 
+                <li><a href="/extra_curricular/edit_extra_curricular/{{ user.username }}">Edit experience</a></li>
+                <li><a href="/extra_curricular/delete_extra_curricular/{{ user.username }}">Delete experience</a></li>
+            </ul>
+        </div>
         </div>
         {% endblock %}
         </body>

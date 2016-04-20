@@ -6,55 +6,41 @@
 from django.shortcuts import render_to_response, render
 from django.http import HttpResponse
 from django.template import RequestContext
-from alumni.forms import Find_AlumniForm
+from alumni.models import alumni
+from django.template.context_processors import csrf
+import operator
 from django.db.models import Q
-from django.core.context_processors import csrf
 
+def show_alumni(request):
+        alumni_records = alumni.objects.all()
+        all_alumni = {"alumni_detail" : alumni_records}
+        print (all_alumni)
+        return render_to_response('alumni/Find_Alumni.html', all_alumni, context_instance=RequestContext(request))
         
-def alumni_search(request, form_class=Find_AlumniForm, template_name='alumni/Find_Alumni.html'):
-        form = None
-        if request.method == 'POST':
-                #do search
-                form = form_class(request.POST)
-                if form.is_valid():
-                        results = search(form.cleaned_data)
-                        if results:
-                                return render(request, template_name, {'form': form, 'Alumni': results})
-        else:
-                form = form_class()
-        return render(request, template_name, {'form': form})
+class find_alumni(alumni):
+    paginate_by = 10
 
-def search(search_data):
-        q = Q()
-        results = None
-        searcher = alumni_search(search_data)
-        
-        for key in search_data.iterkeys():
-                dispatch = getattr(searcher, 'search_%s' % key)
-                q = dispatch(q)
-        if q and len(q):
-                results = alumni.objects.filter(q).select_related()
-        #.order_by('-pk')
-        else:
-                results = []
-        return results
+    def get_queryset(self):
+        result = super(find_alumni, self).get_queryset()
 
-class AlumniSearch(object):
-        dictionary = []
-        def __init__(self, search_data):
-                self.dictionary.update(search_data)
-        
-        def search_keywords(self, q):
-                if self.keywords:
-                        words = self.keywords.split()
-                        first_name_q = Q()
-                        last_name_q = Q()
-                        for word in words:
-                                first_name_q = first_name_q | Q(first_name__icontains=word)
-                                last_name_q = last_name_q | Q(last_name__icontains=word)
-                        keyword_q = first_name_q | last_name_q
-                        q = q & keyword_q
-                return q
-                                
+        query = self.request.GET.get('q')
+        if query:
+            query_list = query.split()
+            result = result.filter(
+                reduce(operator.and_,
+                       (Q(first_name__icontains=q) for q in query_list)) |
+                reduce(operator.and_,
+                       (Q(lastname_name__icontains=q) for q in query_list)) |
+                reduce(operator.and_,
+                       (Q(course__icontains=q) for q in query_list)) |
+                reduce(operator.and_,
+                       (Q(faculty__icontains=q) for q in query_list)) |
+                reduce(operator.and_,
+                       (Q(sector__icontains=q) for q in query_list)) |
+                reduce(operator.and_,
+                       (Q(self_employed__icontains=q) for q in query_list))
+            )
+        return result
+
                         
         

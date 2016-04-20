@@ -8,32 +8,132 @@
         <body>
         {% block content %}
         <div class = "StudentInfoMain">
-
+        <div id = "StudentInfoInner">
+            <div id = "profilephoto">
+                <img src="{{ person.photo.url }}" height="200" width="200 border="1" ">
+            </div>
+            <table border="0" align="right">
+                <tr>
+                    <td>Username:</td>
+                    <td>{{ user.username }}</td> 
+                </tr>
+                <tr>
+                    <td>Student ID:</td>
+                    <td>{{ person.student_ID }}</td> 
+                </tr>
+                <tr>
+                    <td>First name:</td>
+                    <td>{{ person.first_name}}</td> 
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td>{{ person.last_name }}</td> 
+                </tr>
+                <tr>
+                    <td>Study Level:</td>
+                    <td>{{ person.year }}</td> 
+                </tr>
+                <tr>
+                    <td>Student Course:</td>
+                    <td>{{ person.degree }}</td> 
+                </tr>
+            </table>
+        </div>
 
 		</div>
 		<div id="Options">
 			<ul>
-				<li><a href="/student/">Home</a></li>
-            	<li><a href="/extra_curricular/add_extra_curricular/">Add Information</a></li>
-            	<li><a href="#">View User Profile</a></li>
-            	<li><a href="#">Checklist</a></li>
-            	<li><a href="/skill/add_skill/">My Skills</a></li>
+				<li><a href="/student/{{ user.username }}">Home</a></li>
+            	<li><a href="/extra_curricular/add_extra_curricular/{{ user.username }}">Add Information</a></li>
+            	<li><a href="/student/profile/{{ user.username }}">View User Profile</a></li>
+            	<li><a href="/skill/add_skill/{{ user.username }}">My Skills</a></li>
 				<li><a href="/alumni/Find_Alumni/">Contact Alumni</a></li>
         	</ul>
 		</div>
-		<div class = "Homebanner">
-			<p>{{ user.username }}</p>
-            <p>{{ person.student_ID }}</p>
-            <p>{{ person.last_name }}</p>
-            <p>{{ person.year }}</p>
-            <p>{{ person.degree }}</p>
+		<div id = "profilemain">
+		<h1> Profile Page</h1>
+		<p>This is the profile summary page. On this page you willl find a summary of the users profile</p> 
+		<p>This includes information about their extra curricular activities covering work experience or volunteering in addition to any skill you have provided</p>
+		<p>{{ person.first_name}} {{ person.last_name}}'s profile: </p>
+		<div id = "profilesummarybox">
+		<div id = "profilemainphoto">
+			<img src="{{ person.photo.url }}" height="300" width="300 border="1" ">
+		</div>
+		<p> {{ person.first_name }}'s' Information: </p>
+				<table border="0" align="center">
+			    <td>Student ID:</td>
+                    <td>{{ person.student_ID }}</td> 
+                </tr>
+                <tr>
+                    <td>First name:</td>
+                    <td>{{ person.first_name}}</td> 
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td>{{ person.last_name }}</td> 
+                </tr>
+                <tr>
+                    <td>Study Level:</td>
+                    <td>{{ person.year }}</td> 
+                </tr>
+                <tr>
+                    <td>Student Course:</td>
+                    <td>{{ person.degree }}</td> 
+                </tr>
+                </table>
+        <p> {{ person.first_name }}'s module results: </p>
+        <div id = "profiletablehori">
+                <table border="0" align="center">
+  				<tr>
+    				<th>Module Name</th>
+    				<th>Credits</th>
+    				<th>Result</th>
+  				</tr>
+  				<tr>
+    				<td>{{ module.name }}</td>
+    				<td>{{ module.credits }}</td>
+    				<td>{{ module.results }}</td>
+  				</tr>
+				</table>
+		</div>
 
+        <p> {{ person.first_name }}'s current experience: </p>
+        <div id = "profiletablehori">
+                <table border="0" align="center">
+  				<tr>
+    				<th>Type of experience</th>
+    				<th>Name</th>
+    				<th>Role</th>
+    				<th>Start Date</th>
+    				<th>End Date</th>
+  				</tr>
+  				<tr>
+    				<td>{{ person.extra_curricular.type_of_exp }}</td>
+    				<td>{{ experience.name }}</td>
+    				<td>{{ experience.role }}</td>
+    				<td>{{ experience.start_date }}</td>
+    				<td>{{ experience.end_date }}</td>
+  				</tr>
+				</table>
+		</div>
+
+		<p> {{ person.first_name }}'s skills: </p>
+        <div id = "profiletablehori">
+                <table border="0" align="center">
+  				<tr>
+    				<th>Name</th>
+    				<th>Additional Information (if specified)</th>
+  				</tr>
+  				<tr>
+    				<td>{{ skill.name }}</td>
+    				<td>{{ skill.additional }}</td>
+  				</tr>
+				</table>
 		</div>
 
 
-		<footer>
+		</div>
 
-		</footer>
         {% endblock %}
 		</body>
 
