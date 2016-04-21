@@ -55,7 +55,7 @@
 		<p>This is the profile summary page. On this page you willl find a summary of the users profile</p> 
 		<p>This includes information about their extra curricular activities covering work experience or volunteering in addition to any skill you have provided</p>
 		<p>{{ person.first_name}} {{ person.last_name}}'s profile: </p>
-		<div id = "profilesummarybox">
+		<div id = "profilesummarybox" style="overflow-y:scroll;">
 		<div id = "profilemainphoto">
 			<img src="{{ person.photo.url }}" height="300" width="300 border="1" ">
 		</div>
@@ -90,32 +90,36 @@
     				<th>Result</th>
   				</tr>
   				<tr>
-    				<td>{{ module.name }}</td>
-    				<td>{{ module.credits }}</td>
-    				<td>{{ module.results }}</td>
+                {% for m in modules %}
+    				<td>{{ m.name }}</td>
+    				<td>{{ m.credits }}</td>
+    				<td>{{ m.results }}</td>
   				</tr>
+                {% endfor %}
 				</table>
 		</div>
 
         <p> {{ person.first_name }}'s current experience: </p>
         <div id = "profiletablehori">
                 <table border="0" align="center">
-  				<tr>
-    				<th>Type of experience</th>
-    				<th>Name</th>
-    				<th>Role</th>
-    				<th>Start Date</th>
-    				<th>End Date</th>
-  				</tr>
-  				<tr>
-    				<td>{{ person.extra_curricular.type_of_exp }}</td>
-    				<td>{{ experience.name }}</td>
-    				<td>{{ experience.role }}</td>
-    				<td>{{ experience.start_date }}</td>
-    				<td>{{ experience.end_date }}</td>
-  				</tr>
-				</table>
-		</div>
+                <tr>
+                    <th>Type of experience</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+                <tr>
+                {% for e in experience %}
+                    <td>{{ e.type_of_exp }}</td>
+                    <td>{{ e.name }}</td>
+                    <td>{{ e.role }}</td>
+                    <td>{{ e.start_date }}</td>
+                    <td>{{ e.end_date }}</td>
+                </tr>
+                {% endfor %}
+                </table>
+        </div>
 
 		<p> {{ person.first_name }}'s skills: </p>
         <div id = "profiletablehori">
@@ -125,9 +129,11 @@
     				<th>Additional Information (if specified)</th>
   				</tr>
   				<tr>
-    				<td>{{ skill.name }}</td>
-    				<td>{{ skill.additional }}</td>
+                {% for s in skills %}
+    				<td>{{ s.name }}</td>
+    				<td>{{ s.additional }}</td>
   				</tr>
+                {% endfor %}
 				</table>
 		</div>
 

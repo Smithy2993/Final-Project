@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
-        <html>
+     <html>
         <head>
-                {% block title %}Find Alumni{% endblock %}
+                {% block title %}Edit experience{% endblock %}
         </head>
 
         <body>
@@ -39,8 +39,6 @@
                 </tr>
             </table>
         </div>
-
-
         </div>
         <div id="Options">
             <ul>
@@ -49,33 +47,40 @@
                 <li><a href="/student/profile/{{ user.username }}">View User Profile</a></li>
                 <li><a href="/skill/add_skill/{{ user.username }}">My Skills</a></li>
                 <li><a href="/alumni/Find_Alumni/">Contact Alumni</a></li>
-            </ul>
+      </ul>
+        </div>
+        <div id = "experiencemain">
         </div>
 
-        <h1>Find an Alumni</h1>
+        <p>{{ person.first_name}}'s current experience: </p>
+        <div id = "current_experience">
+        <form action="form_action.asp">
+            <input type="checkbox" name="coffee" value="cream">With cream<br>
+            <input type="checkbox" name="coffee" value="sugar">With sugar<br>
+            <br>
+            <input type="button" onclick="myFunction()" value="Send order">
+            <br><br>
+            <input type="text" id="order" size="50">
+            <input type="submit" value="Submit">
+        </form>
 
+        <script>
+            function myFunction() {
+            var coffee = document.forms[0];
+                var txt = "";
+                var i;
+                for (i = 0; i < coffee.length; i++) {
+                    if (coffee[i].checked) {
+                        txt = txt + coffee[i].value + " ";
+                        }
+                    }
+                document.getElementById("order").value = "You ordered a coffee with: " + txt;
+            }
+        </script>
 
-        <div id = "current_alumni">
-                <table border="0" align="center">
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Course</th>
-                    <th>Sector</th>
-                </tr>
-                {% for alumni in alumni_records %}
-                <tr>
-                    <td>{{ alumni_records.first_name }}</td>
-                    <td>{{ alumni_records.last_name }}</td>
-                    <td>{{ alumni_records.course }}</td>
-                    <td>{{ alumni_records.sector }}</td>
-                </tr>
-                {% endfor %}
-                </table>
         </div>
-
         </div>
         {% endblock %}
-
         </body>
+
 </html>

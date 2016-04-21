@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
-        <html>
+     <html>
         <head>
-                {% block title %}Find Alumni{% endblock %}
+                {% block title %}Edit experience{% endblock %}
         </head>
 
         <body>
@@ -39,8 +39,6 @@
                 </tr>
             </table>
         </div>
-
-
         </div>
         <div id="Options">
             <ul>
@@ -49,33 +47,18 @@
                 <li><a href="/student/profile/{{ user.username }}">View User Profile</a></li>
                 <li><a href="/skill/add_skill/{{ user.username }}">My Skills</a></li>
                 <li><a href="/alumni/Find_Alumni/">Contact Alumni</a></li>
-            </ul>
+      </ul>
+        </div>
+        <div id = "experiencemain">
         </div>
 
-        <h1>Find an Alumni</h1>
-
-
-        <div id = "current_alumni">
-                <table border="0" align="center">
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Course</th>
-                    <th>Sector</th>
-                </tr>
-                {% for alumni in alumni_records %}
-                <tr>
-                    <td>{{ alumni_records.first_name }}</td>
-                    <td>{{ alumni_records.last_name }}</td>
-                    <td>{{ alumni_records.course }}</td>
-                    <td>{{ alumni_records.sector }}</td>
-                </tr>
-                {% endfor %}
-                </table>
+        <p>{{ person.first_name}}'s current experience: </p>
+        <div id = "current_experience">
+            
+            {{ skill.name }}
         </div>
-
         </div>
         {% endblock %}
-
         </body>
+
 </html>

@@ -7,40 +7,26 @@ from django.shortcuts import render_to_response, render
 from django.http import HttpResponse
 from django.template import RequestContext
 from alumni.models import alumni
+from student.models import student
+from django.contrib.auth.models import User
 from django.template.context_processors import csrf
 import operator
 from django.db.models import Q
-
+    
 def show_alumni(request):
         alumni_records = alumni.objects.all()
-        all_alumni = {"alumni_detail" : alumni_records}
-        print (all_alumni)
-        return render_to_response('alumni/Find_Alumni.html', all_alumni, context_instance=RequestContext(request))
+        return render(request, 'alumni/Find_Alumni.html', {'alumni_records':alumni_records})
+
+
+def search_alumni(request):
+        search_query = request.GET.get('search_box', None)
+        results_first_name = alumni.objects.filter(first_name__contains=search_query)
+        results_last_name = alumni.objects.filter(last_name__contains=search_query)
+        result = result_first_name | result_second_name
+        print (search_query)
         
-class find_alumni(alumni):
-    paginate_by = 10
+        
 
-    def get_queryset(self):
-        result = super(find_alumni, self).get_queryset()
-
-        query = self.request.GET.get('q')
-        if query:
-            query_list = query.split()
-            result = result.filter(
-                reduce(operator.and_,
-                       (Q(first_name__icontains=q) for q in query_list)) |
-                reduce(operator.and_,
-                       (Q(lastname_name__icontains=q) for q in query_list)) |
-                reduce(operator.and_,
-                       (Q(course__icontains=q) for q in query_list)) |
-                reduce(operator.and_,
-                       (Q(faculty__icontains=q) for q in query_list)) |
-                reduce(operator.and_,
-                       (Q(sector__icontains=q) for q in query_list)) |
-                reduce(operator.and_,
-                       (Q(self_employed__icontains=q) for q in query_list))
-            )
-        return result
 
                         
         

@@ -1,5 +1,6 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from student.models import student
+from django.core.urlresolvers import reverse
 
 class StudentTestCase(TestCase):
 
@@ -7,10 +8,10 @@ class StudentTestCase(TestCase):
 ##The records intended to fail are below
 
         def setUp(self): 
-                student.objects.create(student_ID="406783796", first_name="Thomas", middle_name="Victor", last_name="Ronaldo", gender="M", year="3", degree="IT")
-                student.objects.create(student_ID="647838992", first_name="Gerald", middle_name="b", last_name="Messi", gender="M", year="3", degree="IT")
-                student.objects.create(student_ID="999999998", first_name="Bill", middle_name="Victor", last_name="Ronaldo34", gender="M", year="3", degree="IT")
-                student.objects.create(student_ID="529348992", first_name="Fred", middle_name="b", last_name="Messi", gender="F", year="3", degree="IT")
+                student.objects.create(user="sc13tah",student_ID="406783796", first_name="Thomas", middle_name="Victor", last_name="Ronaldo", gender="M", year="3", degree="IT")
+                student.objects.create(user="dh13sls",student_ID="647838992", first_name="Gerald", middle_name="b", last_name="Messi", gender="M", year="3", degree="IT")
+                student.objects.create(user="dh13var",student_ID="999999998", first_name="Bill", middle_name="Victor", last_name="Ronaldo34", gender="M", year="3", degree="IT")
+                student.objects.create(user="dh13fss",student_ID="529348992", first_name="Fred", middle_name="b", last_name="Messi", gender="F", year="3", degree="IT")
                 
 
         def test_student(self):

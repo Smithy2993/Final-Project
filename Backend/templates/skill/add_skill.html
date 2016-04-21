@@ -54,15 +54,6 @@
         <div id = "skillform">
         <form id="skillForm" method="POST">
             {% csrf_token %}
-            <!-- {% for field in form.visible_fields %}
-            <table border="1" style="width:50%" align="left">
-                <tr>
-                    <td>{{field.label}}: </td>
-                    <td>{{ field }}<br></td>  
-                </tr>
-
-            </table>
-            {% endfor %} -->
             {{ form.as_p }}
             <input type="submit" name="submit" value="Add skill" />
         </form>
@@ -70,14 +61,14 @@
         <div id = "skilltext">
         <p>View your current skills:</p>
         </div>
-         <div id = "current_skills">
+        <div id = "current_skills">
             
             {{ skill.name }}
         </div>
         <div id = "editdelete">    
             <ul> 
-                <li><a href="/skill/add_skill/{{ user.username }}">Edit experience</a></li>
-                <li><a href="/alumni/Find_Alumni/">Delete experience</a></li>
+                <li><a href="/skill/edit_skill/{{ user.username }}">Edit skills</a></li>
+                <li><a href="/skill/delete_skill/{{ user.username }}">Delete skills</a></li>
             </ul>
         </div>
         {% endblock %}

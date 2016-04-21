@@ -30,8 +30,10 @@ def add_extra_curricular(request, username):
         
         
         if form.is_valid():
-                #form.fields['student_ID'].queryset = student.objects.get(id = student_ID)
-                form.save(commit=True)
+                #form.fields['student_ID'].initial = person.student_ID
+                cleaned = form.save(commit=False)
+                cleaned.student_ID = student.objects.get(user=user)
+                cleaned.save()
                 return render(request, 'student/home.html', {"person":person})
         else:
             print (form.errors)
@@ -40,18 +42,6 @@ def add_extra_curricular(request, username):
         form = extra_curricularForm()
         context_dict = {'person': person, 'form':form}    
     return render_to_response('extra_curricular/add_experience.html', context_dict, RequestContext(request))
-
-def viewexperience(request, student_ID):
-        sid = student.views.index(student_ID=student_ID)
-        experience = extra_curricular.objects.get(sid=sid)
-        return render(request, 'extra_curricular/add_experience.html', {"experience":experience})
-
-
-def experienceprofile(request, username):
-        user = User.objects.get(username=username)
-        person = student.objects.get(user=user)
-        experience = extra_curricular.objects.get(person)
-        return render(request, 'student/profile.html', {"person":person[0],})
         
 def edit_extra_curricular(request, username):
         user = User.objects.get(username=username)

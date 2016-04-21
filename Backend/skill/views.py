@@ -21,8 +21,10 @@ def add_skill(request, username):
         
         
         if form.is_valid():
-                #form.fields['student_ID'].queryset = student.objects.get(id = student_ID)
-                form.save(commit=True)
+                #form.fields['student_ID'].initial = person.student_ID
+                cleaned = form.save(commit=False)
+                cleaned.student_ID = student.objects.get(user=user)
+                cleaned.save()
                 return render(request, 'student/home.html', {"person":person})
         else:
             print (form.errors)
@@ -36,3 +38,13 @@ def index(request, username):
     user = student.views.index(username=username)
     person = student.objects.get(user=user)
     return render(request, 'skill/add_skill.html', {"person":person})
+
+def edit_skill(request, username):
+        user = User.objects.get(username=username)
+        person = student.objects.get(user=user)
+        return render(request, 'skill/edit_skill.html', {"person":person})
+    
+def delete_skill(request, username):
+    user = User.objects.get(username=username)
+    person = student.objects.get(user=user)
+    return render(request, 'skill/delete_skill.html', {"person":person})

@@ -10,13 +10,13 @@ import datetime
 # extra_curricular model for data input
 class extra_curricular(models.Model):
         EXP = (
-        ('WE', 'Work Experience'),
-        ('SE', 'Society Experience'),
-        ('VE', 'Volunteering Experience'),
+        ('Work', 'Work Experience'),
+        ('Society', 'Society Experience'),
+        ('Volunteering', 'Volunteering Experience'),
         )
         
         student_ID = models.ForeignKey(student, verbose_name="Student ID")
-        type_of_exp = models.CharField(verbose_name="Type of experience", max_length=2, choices=EXP)
+        type_of_exp = models.CharField(verbose_name="Type of experience", max_length=12, choices=EXP)
         name = models.CharField(max_length=128, verbose_name="Name")
         role = models.CharField(max_length=128, verbose_name="Role")
         start_date = models.DateField(("Start Date"), blank=True, null=False)

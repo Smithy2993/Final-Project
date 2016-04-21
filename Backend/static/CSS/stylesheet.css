@@ -286,16 +286,16 @@ h1{
 }
 #Homebarleft{
 	height: 100%;
-	width: 15%;
-	background-image: url("http://www.leedsisc.com/-/media/ISC/Leeds/Images/Carousel%20Slides/Leeds%20Uni/fees%202.jp");
+	width: 10%;
+	background-image: url("http://www.lippymag.co.uk/wp-content/uploads/2012/03/52519626_c9fb8711d1_b.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 
 }
 #Homebarright{
     height: 100%;
-    width: 15%;
-    background-image: url("http://www.leedsisc.com/-/media/ISC/Leeds/Images/Carousel%20Slides/Leeds%20Uni/fees%202.jp");
+    width: 10%;
+    background-image: url("http://www.lippymag.co.uk/wp-content/uploads/2012/03/52519626_c9fb8711d1_b.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -318,14 +318,6 @@ h1{
 	opacity: 0.9;
 
 }
-#experienceform{
-	width: 100%;
-	height:80%;
-	color: white;
-    font-family: 'Ubuntu', 'Lato', sans-serif;
-    text-align: left;
-    display: inline-block;
-}
 #skillform table{
 	color: white;
 }
@@ -345,6 +337,14 @@ h1{
     margin: 0 auto;
     border-radius: 15px;
     margin-bottom: 20px;
+}
+#current_experience table{
+    width: 100%;
+    font-family: 'Ubuntu', 'Lato', sans-serif;
+    text-align: center;
+    border-spacing: 70px 10px;
+    color: black;
+
 }
 #skilltext{
 	padding-left:15%;
@@ -370,7 +370,7 @@ h1{
 }
 #profilemain{
 	width: 100%;
-	height: 1200px;
+	height: 1300px;
 
 }
 #profilemain p{
@@ -442,8 +442,6 @@ h1{
     font-family: 'Ubuntu', 'Lato', sans-serif;
     font-size:14px;
     color: white;
-
-
 }
 #show_alumni_table table{
     width: 100%;
@@ -452,11 +450,20 @@ h1{
     text-align: center;
     border-spacing: 70px 10px;
 }
-#current_experience table{
+#current_alumni{
+    background-color: white;
+    width: 75%;
+    margin-top: 20px;
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+#current_alumni table{
     width: 100%;
     font-family: 'Ubuntu', 'Lato', sans-serif;
     text-align: center;
     border-spacing: 70px 10px;
-
+    color: black;
 
 }

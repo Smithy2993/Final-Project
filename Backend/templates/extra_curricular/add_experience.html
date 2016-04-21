@@ -61,26 +61,15 @@
 
         <p>{{ person.first_name}}'s current experience: </p>
         <div id = "current_experience">
-                <table border="0" align="center">
-                <tr>
-                    <th>Type of Experience</th>
-                    <th>Name</th>
-                    <th>Role</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Location</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td>{{ experience.type_of_exp }}</td>
-                    <td>{{ experience.name }}</td>
-                    <td>{{ experience.role }}</td>
-                    <td>{{ experience.start_date }}</td>
-                    <td>{{ experience.end_date }}</td>
-                    <td>{{ experience.Location }}</td>
-                    <td>{{ experience.Description }}</td>
-                </tr>
-                </table>
+            {% for e in experience %}
+                <td>{{ e.type_of_exp }}</td>
+                <td>{{ e.name }}</td>
+                <td>{{ e.role }}</td>
+                <td>{{ e.start_date }}</td>
+                <td>{{ e.end_date }}</td>
+            </tr>
+                {% endfor %}
+
         </div>
         </div>
         <div id = "editdelete">    

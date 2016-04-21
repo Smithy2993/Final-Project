@@ -14,5 +14,6 @@ class extra_curricularForm(forms.ModelForm):
 
         class Meta:
                 model = extra_curricular
-                fields = ['student_ID','type_of_exp','name','role','start_date','end_date','Location','Description',]
+                fields = ['type_of_exp','name','role','start_date','end_date','Location','Description',]
+                exclude = ['student_ID']
 
