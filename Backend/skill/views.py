@@ -14,10 +14,11 @@ def add_skill(request, username):
 
     user = User.objects.get(username=username)
     person = student.objects.get(user=user)
+    skills = skill.objects.filter(student_ID=person).order_by('name')
 
     if request.method == 'POST':
         form = skillForm(request.POST)
-        context_dict = {'person': person, 'form':form}
+        context_dict = {'person': person, "skills":skills, 'form':form}
         
         
         if form.is_valid():
@@ -25,13 +26,13 @@ def add_skill(request, username):
                 cleaned = form.save(commit=False)
                 cleaned.student_ID = student.objects.get(user=user)
                 cleaned.save()
-                return render(request, 'student/home.html', {"person":person})
+                return render(request, 'student/home.html', {"person":person, "skills":skills})
         else:
             print (form.errors)
 
     else:
         form = skillForm()
-        context_dict = {'person': person, 'form':form}    
+        context_dict = {'person': person, "skills":skills, 'form':form}    
     return render_to_response('skill/add_skill.html', context_dict, RequestContext(request))
 
 def index(request, username):

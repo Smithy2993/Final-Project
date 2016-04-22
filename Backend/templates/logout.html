@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+	 <html>
+        <head>
+                {% block title %}Logged out{% endblock %}
+        </head>
+
+        <body>
+        {% block content %}
+        <div id = "logoutmain">
+        <p>Thank you for using My E Profile</p>
+        <a href="/accounts/login/">Click here</a> to Login
+        </div>
+        {% endblock %}
+		</body>
+
+</html>

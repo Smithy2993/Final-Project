@@ -13,9 +13,11 @@ from django.template.context_processors import csrf
 import operator
 from django.db.models import Q
     
-def show_alumni(request):
+def show_alumni(request,username):
+        user = User.objects.get(username=username)
+        person = student.objects.get(user=user)
         alumni_records = alumni.objects.all()
-        return render(request, 'alumni/Find_Alumni.html', {'alumni_records':alumni_records})
+        return render(request, 'alumni/Find_Alumni.html', {'alumni_records':alumni_records, 'person':person})
 
 
 def search_alumni(request):

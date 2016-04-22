@@ -2,7 +2,7 @@
 {% extends "base.html" %}
      <html>
         <head>
-                {% block title %}Add experience{% endblock %}
+                {% block title %}Edit experience{% endblock %}
         </head>
 
         <body>
@@ -51,37 +51,11 @@
       </ul>
         </div>
         <div id = "experiencemain">
-        <h1>Add some experience to your profile</h1>
-        <div id = "experienceform">
-        <form id="extra_curricularForm" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" name="submit" value="Add Experience" />
-        </form>
         </div>
 
-        <p>{{ person.first_name}}'s current experience: </p>
         <div id = "current_experience">
-                <table border="0" align="center">
-                <tr>
-                    <th>Type of experience</th>
-                    <th>Name</th>
-                    <th>Role</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                </tr>
-                <tr>
-                {% for e in experience %}
-                    <td>{{ e.type_of_exp }}</td>
-                    <td>{{ e.name }}</td>
-                    <td>{{ e.role }}</td>
-                    <td>{{ e.start_date }}</td>
-                    <td>{{ e.end_date }}</td>
-                    <td><a href="..extra_curricular/detailed_experience/{{ user.username }}">More information</a></td>
-                </tr>
-                {% endfor %}
-                </table>
-
+            
+            {{ skill.name }}
         </div>
         </div>
         {% endblock %}

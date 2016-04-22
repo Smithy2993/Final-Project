@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
-     <html>
+        <html>
         <head>
-                {% block title %}Add experience{% endblock %}
+                {% block title %}Search Results{% endblock %}
         </head>
 
         <body>
@@ -39,6 +39,8 @@
                 </tr>
             </table>
         </div>
+
+
         </div>
         <div id="Options">
             <ul>
@@ -48,43 +50,21 @@
                 <li><a href="/skill/add_skill/{{ user.username }}">My Skills</a></li>
                 <li><a href="/alumni/Find_Alumni/{{ user.username }}">Contact Alumni</a></li>
                 <li><a href="/accounts/logout/">Log Out</a></li>
-      </ul>
-        </div>
-        <div id = "experiencemain">
-        <h1>Add some experience to your profile</h1>
-        <div id = "experienceform">
-        <form id="extra_curricularForm" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" name="submit" value="Add Experience" />
-        </form>
+            </ul>
         </div>
 
-        <p>{{ person.first_name}}'s current experience: </p>
-        <div id = "current_experience">
-                <table border="0" align="center">
-                <tr>
-                    <th>Type of experience</th>
-                    <th>Name</th>
-                    <th>Role</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                </tr>
-                <tr>
-                {% for e in experience %}
-                    <td>{{ e.type_of_exp }}</td>
-                    <td>{{ e.name }}</td>
-                    <td>{{ e.role }}</td>
-                    <td>{{ e.start_date }}</td>
-                    <td>{{ e.end_date }}</td>
-                    <td><a href="..extra_curricular/detailed_experience/{{ user.username }}">More information</a></td>
-                </tr>
-                {% endfor %}
-                </table>
+        <h1>Search Results</h1>
 
+
+        <div id = "current_alumni">
+                You searched for "{{ query_string }}" and the results are listed below.
+
+
+           <li> {{ found_entries }}}</li>
         </div>
+
         </div>
         {% endblock %}
-        </body>
 
+        </body>
 </html>

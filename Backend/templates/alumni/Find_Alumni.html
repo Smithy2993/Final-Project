@@ -48,7 +48,8 @@
                 <li><a href="/extra_curricular/add_extra_curricular/{{ user.username }}">Add Information</a></li>
                 <li><a href="/student/profile/{{ user.username }}">View User Profile</a></li>
                 <li><a href="/skill/add_skill/{{ user.username }}">My Skills</a></li>
-                <li><a href="/alumni/Find_Alumni/">Contact Alumni</a></li>
+                <li><a href="/alumni/Find_Alumni/{{ user.username }}">Contact Alumni</a></li>
+                <li><a href="/accounts/logout/">Log Out</a></li>
             </ul>
         </div>
 
@@ -63,12 +64,13 @@
                     <th>Course</th>
                     <th>Sector</th>
                 </tr>
-                {% for alumni in alumni_records %}
+                {% for a in alumni_records %}
                 <tr>
-                    <td>{{ alumni_records.first_name }}</td>
-                    <td>{{ alumni_records.last_name }}</td>
-                    <td>{{ alumni_records.course }}</td>
-                    <td>{{ alumni_records.sector }}</td>
+                    <td>{{ a.first_name }}</td>
+                    <td>{{ a.last_name }}</td>
+                    <td>{{ a.course }}</td>
+                    <td>{{ a.sector }}</td>
+                    <td><a href="">View Profile</a></td>
                 </tr>
                 {% endfor %}
                 </table>

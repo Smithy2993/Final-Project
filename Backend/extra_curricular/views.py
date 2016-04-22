@@ -23,10 +23,11 @@ def add_extra_curricular(request, username):
 
     user = User.objects.get(username=username)
     person = student.objects.get(user=user)
+    experience = extra_curricular.objects.filter(student_ID=person).order_by('type_of_exp')
 
     if request.method == 'POST':
         form = extra_curricularForm(request.POST)
-        context_dict = {'person': person, 'form':form}
+        context_dict = {'person': person, "experience":experience, 'form':form}
         
         
         if form.is_valid():
@@ -34,14 +35,20 @@ def add_extra_curricular(request, username):
                 cleaned = form.save(commit=False)
                 cleaned.student_ID = student.objects.get(user=user)
                 cleaned.save()
-                return render(request, 'student/home.html', {"person":person})
+                return render(request, 'student/home.html', {"person":person, "experience":experience})
         else:
             print (form.errors)
 
     else:
         form = extra_curricularForm()
-        context_dict = {'person': person, 'form':form}    
+        context_dict = {'person': person, "experience":experience, 'form':form}    
     return render_to_response('extra_curricular/add_experience.html', context_dict, RequestContext(request))
+
+def show_detail(request,username):
+        user = User.objects.get(username=username)
+        person = student.objects.get(user=user)
+        return render(request, 'extra_curricular/detailed_experience.html', {"person":person})
+
         
 def edit_extra_curricular(request, username):
         user = User.objects.get(username=username)

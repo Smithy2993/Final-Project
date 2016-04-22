@@ -16,4 +16,12 @@ class extra_curricularForm(forms.ModelForm):
                 model = extra_curricular
                 fields = ['type_of_exp','name','role','start_date','end_date','Location','Description',]
                 exclude = ['student_ID']
+                
+        def clean(self):
+                cleaned_data = super(extra_curricularForm, self).clean()
+                start_date = cleaned_data.get("start_date")
+                end_date = cleaned_data.get("end_date")
+                if end_date < start_date:
+                        msg = u"End date should be greater than start date."
+                        self._errors["end_date"] = self.error_class([msg])
 
