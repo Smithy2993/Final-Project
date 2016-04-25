@@ -15,7 +15,7 @@ class extra_curricularForm(forms.ModelForm):
         class Meta:
                 model = extra_curricular
                 fields = ['type_of_exp','name','role','start_date','end_date','Location','Description',]
-                exclude = ['student_ID']
+                exclude = ['student_ID','identifier']
                 
         def clean(self):
                 cleaned_data = super(extra_curricularForm, self).clean()

@@ -54,8 +54,14 @@
         </div>
 
         <h1>Find an Alumni</h1>
-
-
+        <div id = "Alumnisearch">
+        <form method="get" action="/alumni/search/">
+        	<p>Enter search criteria relating to alumni(First name, Last name, Course)</p>
+            <label for="id_q">Search:</label>
+                <input type="text" name="q" id="id_q"/>
+                <input type="submit" value="Submit"/>
+        </form>
+        </div>
         <div id = "current_alumni">
                 <table border="0" align="center">
                 <tr>

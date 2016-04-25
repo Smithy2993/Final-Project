@@ -9,5 +9,5 @@ from alumni import views
 urlpatterns = [
         #Adding the find alumni page to the server usage
         url(r'^Find_Alumni/(?P<username>[a-zA-Z0-9]+)$', views.show_alumni, name='show_alumni'),
-        #url(r'^', views.search_alumni, name='search'),
+        url(r'^search/', views.search_alumni, name='search'),
 ]

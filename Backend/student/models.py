@@ -27,7 +27,7 @@ class student(models.Model):
         user = models.OneToOneField(User)
         student_ID = models.CharField(unique=True, max_length=9, validators=[RegexValidator(regex='^[0-9]{9,9}$', message='Must be 9 unique numbers', code='nomatch')], null=True)
         first_name = models.CharField(max_length=128)
-        middle_name = models.CharField(max_length=128)
+        middle_name = models.CharField(max_length=128, blank=True)
         last_name = models.CharField(max_length=128)
         gender = models.CharField(max_length=1, choices=GENDER)
         year = models.CharField(max_length=1, choices=YEARS)

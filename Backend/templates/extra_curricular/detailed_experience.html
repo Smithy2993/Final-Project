@@ -2,7 +2,7 @@
 {% extends "base.html" %}
      <html>
         <head>
-                {% block title %}Edit experience{% endblock %}
+                {% block title %}Detailed experience{% endblock %}
         </head>
 
         <body>
@@ -50,14 +50,19 @@
                 <li><a href="/accounts/logout/">Log Out</a></li>
       </ul>
         </div>
-        <div id = "experiencemain">
+        <div id = "detailedexperiencemain">
+        {% for info in details %}
+			{{ info.type_of_exp}}
+		{% endfor %}
+
+        
+
+
+
+
+
         </div>
 
-        <div id = "current_experience">
-            
-            {{ skill.name }}
-        </div>
-        </div>
         {% endblock %}
         </body>
 

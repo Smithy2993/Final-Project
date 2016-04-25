@@ -53,16 +53,27 @@
             </ul>
         </div>
 
-        <h1>Search Results</h1>
-
-
-        <div id = "current_alumni">
-                You searched for "{{ query_string }}" and the results are listed below.
-
-
-           <li> {{ found_entries }}}</li>
+         <h1>Search Results</h1>
+        <div id = "searchresults">
+                <p>You searched for "{{ query_string }}" and the results are listed below.</p>
+                <table border="0" align="center">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Course</th>
+                    <th>Sector</th>
+                </tr>
+                {% for f in found_entries %}
+                <tr>
+                    <td>{{ f.first_name }}</td>
+                    <td>{{ f.last_name }}</td>
+                    <td>{{ f.course }}</td>
+                    <td>{{ f.sector }}</td>
+                    <td><a href="">View Profile</a></td>
+                </tr>
+                {% endfor %}
+                </table>
         </div>
-
         </div>
         {% endblock %}
 

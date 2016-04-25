@@ -43,12 +43,21 @@ def add_extra_curricular(request, username):
         form = extra_curricularForm()
         context_dict = {'person': person, "experience":experience, 'form':form}    
     return render_to_response('extra_curricular/add_experience.html', context_dict, RequestContext(request))
+    
+    
 
-def show_detail(request,username):
-        user = User.objects.get(username=username)
-        person = student.objects.get(user=user)
-        return render(request, 'extra_curricular/detailed_experience.html', {"person":person})
+def show_detail(request, details_view_url):
+        context = RequestContext(request)
+        try:
+                details = extra_curricular.objects.filter(slug__iexact=details_view_urls)
+        
+                context_dict['details'] = details[0]
+        
+        except extra_curricular.DoesNotExist:
+                pass
+        return render_to_response('extra_curricular/detailed_view.html', context_dict, context)
 
+        
         
 def edit_extra_curricular(request, username):
         user = User.objects.get(username=username)
