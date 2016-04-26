@@ -10,7 +10,8 @@ import datetime
 
 #Model for extra_curricular information input
 class extra_curricularForm(forms.ModelForm):
-         
+        start_date = forms.DateField(widget=forms.DateInput(format = '%d/%m/%Y'), input_formats=('%d/%m/%Y',))
+        end_date = forms.DateField(widget=forms.DateInput(format = '%d/%m/%Y'),input_formats=('%d/%m/%Y',))
 
         class Meta:
                 model = extra_curricular

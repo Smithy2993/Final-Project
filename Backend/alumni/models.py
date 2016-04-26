@@ -3,6 +3,15 @@
 #Import the models function along with appropriate validators
 from django.db import models
 from django.core.validators import *
+import random
+from random import randrange
+
+def rand_key(size):
+        return ''.join([random.choice(string.letters + string.digits) for i in range(size)])
+        
+CHARS = '0123456789ABCDEFGHJKMNPQRSTVWXYZ'
+LEN = 8
+MAX_TRIES = 1024
 
 class alumni(models.Model):
         #Choices implemented within the models for degree, faculty, sector and employment
@@ -53,10 +62,28 @@ class alumni(models.Model):
         
         
         #Model for Alumni will have these attributes within the django database
+        identifier = models.CharField(max_length=LEN, unique=True, default=None, primary_key = True)
         first_name = models.CharField(max_length=128)
         last_name = models.CharField(max_length=128)
         course = models.CharField(max_length=30, choices=DEGREE)
         faculty = models.CharField(max_length=60, choices=FACULTY)
         sector = models.CharField(max_length=60, choices=SECTOR)
         self_employed = models.CharField(max_length=3, choices=EMPLOY)
+        
+        def save(self, *args, **kwargs):
+                loop_num = 0
+                unique = False
+                while not unique:
+                    if loop_num < MAX_TRIES:
+                        new_code = ''
+                        for i in range(LEN):
+                            new_code += CHARS[randrange(0, len(CHARS))]
+                        if not alumni.objects.filter(identifier=new_code):
+                            self.identifier = new_code
+                            unique = True
+                        loop_num += 1
+                    else:
+                        raise ValueError("Couldn't generate a unique code.")
+                super(alumni, self).save(*args, **kwargs)
+
 

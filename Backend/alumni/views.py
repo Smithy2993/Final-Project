@@ -41,19 +41,31 @@ def show_alumni(request,username):
         person = student.objects.get(user=user)
         alumni_records = alumni.objects.all().order_by('first_name')
         return render(request, 'alumni/Find_Alumni.html', {'alumni_records':alumni_records, 'person':person})
+        
+#Show's an indepth look at the alumnis details displaying all information for the record clicked
+def show_detail(request, username, details_view_url):
+        context = RequestContext(request)
+        try:
+                details = alumni.objects.get(identifier__iexact=details_view_url)
+                user = User.objects.get(username=username)
+                person = student.objects.get(user=user)   
+        
+        except alumni.DoesNotExist:
+                pass
+        return render_to_response('alumni/detailed_experience.html', {'details':details, 'person':person}, context)
 
 
-def search_alumni(request):
+def search_alumni(request, username):
     query_string = ''
     found_entries = None
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string = request.GET['q']
- 
         entry_query = get_query(query_string, ['first_name', 'last_name','course'])
-       
         found_entries = alumni.objects.filter(entry_query)
+        user = User.objects.get(username=username)
+        person = student.objects.get(user=user)
  
-    return render(request, 'alumni/search_results.html', {'query_string': query_string, 'found_entries': found_entries })
+    return render(request, 'alumni/search_results.html', {'query_string': query_string, 'found_entries': found_entries,'person':person })
         
         
 

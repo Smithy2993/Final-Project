@@ -2,7 +2,7 @@
 {% extends "base.html" %}
      <html>
         <head>
-                {% block title %}Add skills{% endblock %}
+                {% block title %}Detailed experience{% endblock %}
         </head>
 
         <body>
@@ -48,33 +48,28 @@
                 <li><a href="/skill/add_skill/{{ user.username }}">My Skills</a></li>
                 <li><a href="/alumni/Find_Alumni/{{ user.username }}">Contact Alumni</a></li>
                 <li><a href="/accounts/logout/">Log Out</a></li>
-            </ul>
+      </ul>
+        </div>
+        <div id = "SkillInfoBanner">
+        <h1>Skill Details</h1>
+
+        </div>
+        <div id = "detailedexperiencemainskill">
+        <div id = "detailedexperienceskill">
+        <p>Name: {{ details.name }}</p>
+        <p>Description: </p>
+        <p>{{ details.additional }}</p>
+
+
+
+        </div>
+        <div id = "editdelete">
+            <li><a href="/skill/edit_skill/{{ user.username }}">Edit</a></li>
+            <li><a href="/skill/delete_skill/{{ user.username }}">Delete</a></li>
+        </div>
         </div>
 
-        <h1>Add some skills to your profile</h1>
-        <div id = "skillform">
-        <form id="skillForm" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" name="submit" value="Add skill" />
-        </form>
-        </div>
-        <div id = "skilltext">
-        <p>View your current skills:</p>
-        </div>
-        <div id = "current_skills">
-           <table border="0" align="center">
-                <tr>
-                    <th>Name</th>
-                </tr>
-                <tr>
-                {% for s in skills %}
-                    <td>{{ s.name }}</td>
-                    <td><a href="/skill/view_details/{{ user.username }}/{{ s.identifier }}/">View Skill Details</a></td>
-                </tr>
-                {% endfor %}
-                </table>
-        </div>
+
         {% endblock %}
         </body>
 

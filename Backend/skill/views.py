@@ -39,6 +39,18 @@ def index(request, username):
     user = student.views.index(username=username)
     person = student.objects.get(user=user)
     return render(request, 'skill/add_skill.html', {"person":person})
+    
+   
+#Show's an indepth look at the user details displaying all information for the record clicked
+def show_detail(request, details_view_url):
+        context = RequestContext(request)
+        try:
+                details = skill.objects.get(identifier__iexact=details_view_url)    
+        
+        except skill.DoesNotExist:
+                pass
+        return render_to_response('skill/detailed_experience.html', {'details':details}, context)
+        
 
 def edit_skill(request, username):
         user = User.objects.get(username=username)

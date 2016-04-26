@@ -18,7 +18,7 @@ def index(request, username):
     person = student.objects.get(user=user)
     return render(request, 'extra_curricular/add_experience.html', {"person":person})
 
-# Add extra_curricular method
+# Add extra_curricular method for adding experience to their profile
 def add_extra_curricular(request, username):
 
     user = User.objects.get(username=username)
@@ -31,7 +31,6 @@ def add_extra_curricular(request, username):
         
         
         if form.is_valid():
-                #form.fields['student_ID'].initial = person.student_ID
                 cleaned = form.save(commit=False)
                 cleaned.student_ID = student.objects.get(user=user)
                 cleaned.save()
@@ -44,30 +43,44 @@ def add_extra_curricular(request, username):
         context_dict = {'person': person, "experience":experience, 'form':form}    
     return render_to_response('extra_curricular/add_experience.html', context_dict, RequestContext(request))
     
-    
-
-def show_detail(request, details_view_url):
+#Show's an indepth look at the user details displaying all information for the record clicked
+def show_detail(request, username, details_view_url):
         context = RequestContext(request)
         try:
-                details = extra_curricular.objects.filter(slug__iexact=details_view_urls)
-        
-                context_dict['details'] = details[0]
+                details = extra_curricular.objects.get(identifier__iexact=details_view_url)
+                user = User.objects.get(username=username)
+                person = student.objects.get(user=user)  
         
         except extra_curricular.DoesNotExist:
                 pass
-        return render_to_response('extra_curricular/detailed_view.html', context_dict, context)
-
+        return render_to_response('extra_curricular/detailed_experience.html', {'details':details, 'person':person}, context)
         
         
-def edit_extra_curricular(request, username):
-        user = User.objects.get(username=username)
-        person = student.objects.get(user=user)
-        return render(request, 'extra_curricular/edit_experience.html', {"person":person})
+      
+def edit_extra_curricular(request, username, details_view_url):
+        context = RequestContext(request)
+        
+        try:
+                details = extra_curricular.objects.get(identifier__iexact=details_view_url)
+                user = User.objects.get(username=username)
+                person = student.objects.get(user=user)    
+        
+        except extra_curricular.DoesNotExist:
+                pass
+                
+        return render(request, 'extra_curricular/edit_experience.html', {'person':person, 'details':details})
     
-def delete_extra_curricular(request, username):
-    user = User.objects.get(username=username)
-    person = student.objects.get(user=user)
-    return render(request, 'extra_curricular/delete_experience.html', {"person":person})
+def delete_extra_curricular(request, username, details_view_url):
+        context = RequestContext(request)
+        if request.POST.get('delete'):
+                user = User.objects.get(username=username)
+                person = student.objects.get(user=user)
+                try:
+                        details = extra_curricular.objects.get(identifier__iexact=details_view_url)
+                        details.delete()
+                except extra_curricular.DoesNotExist:
+                        pass
+                return render(request, 'extra_curricular/delete_experience.html', {'person':person,'details':details})
                         
                         
                  

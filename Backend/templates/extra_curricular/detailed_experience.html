@@ -51,17 +51,45 @@
       </ul>
         </div>
         <div id = "detailedexperiencemain">
-        {% for info in details %}
-			{{ info.type_of_exp}}
-		{% endfor %}
-
-        
-
-
-
-
-
+        <h1>{{ details.name }}</h1>
+        <div id = "detailedexperience">
+			<table border="0" align="right">
+                <tr>
+                    <td>Type of Experience:</td>
+                    <td>{{ details.type_of_exp }}</td> 
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td>{{ details.name }}</td> 
+                </tr>
+                <tr>
+                    <td>Role:</td>
+                    <td>{{ details.role}}</td> 
+                </tr>
+                <tr>
+                    <td>Start Date:</td>
+                    <td>{{ details.start_date }}</td> 
+                </tr>
+                <tr>
+                    <td>End Date:</td>
+                    <td>{{ details.end_date }}</td> 
+                </tr>
+                <tr>
+                    <td>Location:</td>
+                    <td>{{ details.Location }}</td> 
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td>{{ details.Description }}</td> 
+                </tr>
+            </table>
         </div>
+        </div>
+        <div id = "editdelete">
+            <li><a href="/extra_curricular/edit_extra_curricular/{{ user.username }}/{{ details.identifier }}/">Edit</a></li>
+            <li><a href="/extra_curricular/delete_extra_curricular/{{ user.username }}/{{ details.identifier }}/">Delete</a></li>
+        </div>
+
 
         {% endblock %}
         </body>

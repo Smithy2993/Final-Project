@@ -69,7 +69,7 @@
                     <td>{{ f.last_name }}</td>
                     <td>{{ f.course }}</td>
                     <td>{{ f.sector }}</td>
-                    <td><a href="">View Profile</a></td>
+                    <td><a href="/alumni/view_details/{{ user.username }}/{{ f.identifier }}/">View Profile</a></td>
                 </tr>
                 {% endfor %}
                 </table>

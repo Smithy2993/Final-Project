@@ -55,7 +55,7 @@
 
         <h1>Find an Alumni</h1>
         <div id = "Alumnisearch">
-        <form method="get" action="/alumni/search/">
+        <form method="get" action="/alumni/search/{{ user.username }}/">
         	<p>Enter search criteria relating to alumni(First name, Last name, Course)</p>
             <label for="id_q">Search:</label>
                 <input type="text" name="q" id="id_q"/>
@@ -76,7 +76,7 @@
                     <td>{{ a.last_name }}</td>
                     <td>{{ a.course }}</td>
                     <td>{{ a.sector }}</td>
-                    <td><a href="">View Profile</a></td>
+                    <td><a href="/alumni/view_details/{{ a.identifier }}/">View Profile</a></td>
                 </tr>
                 {% endfor %}
                 </table>

@@ -8,6 +8,7 @@ from student.models import student
 import datetime, random
 from random import randrange
 
+
 def rand_key(size):
         return ''.join([random.choice(string.letters + string.digits) for i in range(size)])
         
@@ -33,7 +34,6 @@ class extra_curricular(models.Model):
         end_date = models.DateField(("End date"), blank=True, null=False)
         Location = models.CharField(max_length=128, verbose_name="Location")
         Description = models.TextField(validators=[MaxLengthValidator(200)], verbose_name="Description")
-        slug = models.SlugField(max_length=255)
         
         def save(self, *args, **kwargs):
                 loop_num = 0

@@ -77,7 +77,8 @@
                     <td>{{ e.role }}</td>
                     <td>{{ e.start_date }}</td>
                     <td>{{ e.end_date }}</td>
-                    <td><a href= {{ e.slug }}>More information</a></td>
+                    <td><a href="/extra_curricular/view_details/{{ user.username }}/{{ e.identifier }}/">View Experience Details</a></td>
+
                 </tr>
                 {% endfor %}
                 </table>
