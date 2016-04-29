@@ -50,8 +50,12 @@
                 <li><a href="/accounts/logout/">Log Out</a></li>
             </ul>
         </div>
-
+        <div id = "AddskillMain">
         <h1>Add some skills to your profile</h1>
+        <div id = "skilldesc">
+        <p>Please provide the name of the skill and optionally provide a short description</p>
+        </div>
+        <br>
         <div id = "skillform">
         <form id="skillForm" method="POST">
             {% csrf_token %}
@@ -74,6 +78,7 @@
                 </tr>
                 {% endfor %}
                 </table>
+        </div>
         </div>
         {% endblock %}
         </body>

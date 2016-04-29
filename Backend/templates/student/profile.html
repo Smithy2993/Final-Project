@@ -56,7 +56,7 @@
 		<p>This is the profile summary page. On this page you willl find a summary of the users profile</p> 
 		<p>This includes information about their extra curricular activities covering work experience or volunteering in addition to any skill you have provided</p>
 		<p>{{ person.first_name}} {{ person.last_name}}'s profile: </p>
-		<div id = "profilesummarybox" style="overflow-y:scroll;">
+		<div id = "profilesummarybox">
 		<div id = "profilemainphoto">
 			<img src="{{ person.photo.url }}" height="300" width="300 border="1" ">
 		</div>
@@ -82,6 +82,7 @@
                     <td>{{ person.degree }}</td> 
                 </tr>
                 </table>
+                <br>
         <p> {{ person.first_name }}'s module results: </p>
         <div id = "profiletablehori">
                 <table border="0" align="center">
@@ -99,7 +100,7 @@
                 {% endfor %}
 				</table>
 		</div>
-
+		<br>
         <p> {{ person.first_name }}'s current experience: </p>
         <div id = "profiletablehori">
                 <table border="0" align="center">
@@ -117,12 +118,12 @@
                     <td>{{ e.role }}</td>
                     <td>{{ e.start_date }}</td>
                     <td>{{ e.end_date }}</td>
-                    <td><a href="/extra_curricular/view_details/{{ e.identifier }}/">View Experience Details</a></td>
+                    <td><a href="/extra_curricular/view_details/{{ user.username}}/{{ e.identifier }}/">View Experience Details</a></td>
                 </tr>
                 {% endfor %}
                 </table>
         </div>
-
+        <br>
 		<p> {{ person.first_name }}'s skills: </p>
         <div id = "profiletablehori">
                 <table border="0" align="center">

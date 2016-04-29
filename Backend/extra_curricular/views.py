@@ -12,12 +12,6 @@ from django.template.context_processors import csrf
 from django.contrib.auth.models import User
 from student.models import student
 
-# Information box displayed on each page  
-def index(request, username):
-    user = student.views.index(username=username)
-    person = student.objects.get(user=user)
-    return render(request, 'extra_curricular/add_experience.html', {"person":person})
-
 # Add extra_curricular method for adding experience to their profile
 def add_extra_curricular(request, username):
 
@@ -59,28 +53,38 @@ def show_detail(request, username, details_view_url):
       
 def edit_extra_curricular(request, username, details_view_url):
         context = RequestContext(request)
-        
         try:
                 details = extra_curricular.objects.get(identifier__iexact=details_view_url)
                 user = User.objects.get(username=username)
-                person = student.objects.get(user=user)    
-        
+                person = student.objects.get(user=user)
+                if request.method == 'POST':
+                    form = extra_curricularForm(request.POST, instance=details)
+                    if form.is_valid():
+                        form.save(commit=True)
+                        return render(request, 'student/home.html', {"person":person})
+                    else:
+                        print (form.errors)                    
+                else:
+                    form = extra_curricularForm(instance=details)
         except extra_curricular.DoesNotExist:
-                pass
-                
-        return render(request, 'extra_curricular/edit_experience.html', {'person':person, 'details':details})
+                pass 
+        return render(request, 'extra_curricular/edit_experience.html', {'person':person, 'details':details, 'form':form})
+
+        
+        
+        
+        
     
 def delete_extra_curricular(request, username, details_view_url):
         context = RequestContext(request)
-        if request.POST.get('delete'):
-                user = User.objects.get(username=username)
-                person = student.objects.get(user=user)
-                try:
-                        details = extra_curricular.objects.get(identifier__iexact=details_view_url)
-                        details.delete()
-                except extra_curricular.DoesNotExist:
-                        pass
-                return render(request, 'extra_curricular/delete_experience.html', {'person':person,'details':details})
+        user = User.objects.get(username=username)
+        person = student.objects.get(user=user)
+        try:
+                details = extra_curricular.objects.get(identifier__iexact=details_view_url)
+                details.delete()
+        except extra_curricular.DoesNotExist:
+                pass
+        return render(request, 'extra_curricular/delete_experience.html', {'person':person,'details':details})
                         
                         
                  

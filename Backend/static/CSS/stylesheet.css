@@ -5,13 +5,13 @@ body{
 footer{
 	background-color: #B31B1B;
 	width: 100%;
-	height: 50px;
+	height: 45px;
     display: block;
 }
 footer p{
 	float: left;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     padding-left: 50px;
     color: white;
 }
@@ -53,7 +53,7 @@ h1{
 	background-image: url("http://thefabweb.com/wp-content/uploads/2012/08/oeTqW.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-	height:550px;
+	height:500px;
 	position: center;
 }
 .loginbox{
@@ -159,35 +159,6 @@ h1{
 	font-size: 18px;
 
 }
-.flex-container-Login {
-    display: -webkit-flex;
-    display: flex;
-    width: 100%;
-    height: 250px;
-    background-color: #212121;
-}
-#flex-boxes-Login{
-	background-color: #B31B1B;
-    width: 200px;
-    height: 150px;
-    margin: 0 auto;
-	border-radius: 25px;
-	margin-top: 50px;
-	text-align: center;
-}
-#flex-boxes-Login a{
-	color: white;
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    display: table-cell; 
-  	vertical-align: middle; 
-  	text-align: center;
-  	padding-top: 35px;
-}
-#flex-boxes-Login i{
-	color: white;
-}
 .StudentInfoMain{
     background-image: url("http://www.meetinleeds.co.uk/wp-content/uploads/2014/06/University-Square-and-Parkinson1.jpg");
     background-repeat: no-repeat;
@@ -271,40 +242,46 @@ h1{
 }
 #Homebarleft{
 	height: 100%;
-	width: 10%;
+	width: 15%;
 	background-image: url("http://www.lippymag.co.uk/wp-content/uploads/2012/03/52519626_c9fb8711d1_b.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    opacity: 0.3;
 
 }
 #Homebarright{
     height: 100%;
-    width: 10%;
+    width: 15%;
     background-image: url("http://www.lippymag.co.uk/wp-content/uploads/2012/03/52519626_c9fb8711d1_b.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    opacity: 0.3;
 
 }
-#Homecontactboxflex{
-	width: 100%;
-	margin: 0 auto;
-	height: 150px;
-	padding-top: 50px;
-	display: flex;
+#Welcomebox{
+    width: 97%;
+    height: 100px;
+    background-color: #333333;
+    margin: 20px 20px;
+    border-radius: 10px;
+    border:1px solid white;
 }
-#Homecontactbox{
-	background-color: #B31B1B;
-	width: 200px;
-	height: 100%;
-	margin: 0 auto;
-	border-radius: 10%;
-	border-left: 20px;
-	border-right: 20px;
-	opacity: 0.9;
+#Homeinfo{
+    width: 97%;
+    height: 300px;
+    background-color: #333333;
+    margin: 20px 20px;
+    border-radius: 10px;
+    border:1px solid white;
+}
+#extra_curricularForm{
+    width: 70%;
+    text-align: center;
+}
+#extra_curricularForm input[type=submit]{
+    margin-left: 500px;
 
-}
-#skillform table{
-	color: white;
+
 }
 #current_skills{
 	background-color: white;
@@ -324,7 +301,7 @@ h1{
 }
 #current_experience{
     background-color: white;
-    width: 75%;
+    width: 70%;
     margin-top: 20px;
     height: 500px;
     margin: 0 auto;
@@ -355,6 +332,16 @@ h1{
 	margin: 0 auto;
 	border-radius: 15px;
 	margin-bottom: 30px;
+}
+#FindAlumnimain{
+    background-image:url('../../static/images/fair-teaching1.jpg');
+    height: 100%;
+    margin-top: -20px;
+
+}
+#FindAlumnimain h1{
+    padding-top: 20px;
+
 }
 #Find_alumni_text{
 	padding-left:15%;
@@ -460,19 +447,49 @@ h1{
     color: black;
 
 }
-#skillform form{
+#AddskillMain{
+    background-image: url(../../static/images/NightExterior.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -20px;
+    height: 100%;
+    opacity: 0.8;
+
+}
+#AddskillMain h1{
+    padding-top: 20px;
+
+}
+#skilldesc p{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+
+}
+#skillForm{
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
-    border-spacing: 70px 10px;
     color: white;
+    margin-left: 200px;
 
 }
-#skillForm form input[type=text] {
-    padding: 0px 20px;
-    margin: 5px 30px;
+#skillForm textarea{
+    vertical-align: top;
+    width: 495px;
+    height: 250px;
+    margin-left: 300px;
+
+}
+#skillForm input[type=text] {
+    width: 500px;
+    margin-left: 410px;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+}
+#skillForm input[type=submit] {
+    margin-left: 900px;
 }
 #logoutmain{
     font-family: Arial, Helvetica, sans-serif;
@@ -556,6 +573,7 @@ h1{
     height:175px;
     position: relative;
     margin-top:-20px;
+    opacity: 0.8;
 
 }
 #SkillInfoBanner h1{
@@ -569,4 +587,37 @@ h1{
     width: 100%;
     height: 300px;
 
+}
+#deletedmain{
+    width: 100%;
+    height: 200px;
+}
+#deletedmain p{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    padding: 30px;
+
+}
+#edit_experience{
+    width: 75%;
+    margin-top: 20px;
+    height: 700px;
+    margin: 0 auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+#edit_experience p{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    border-spacing: 70px 10px;
+    color: white;
+    padding: 5px;
+
+}
+#edit_experience form{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    border-spacing: 70px 10px;
+    color: white;
 }

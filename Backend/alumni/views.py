@@ -13,12 +13,15 @@ from django.template.context_processors import csrf
 from django.db.models import Q
 import re
 
+#Take the query from the get_query function and reduce the case returning the reduced case back
 def normalize_query(query_string,
                     findterms=re.compile(r'"([^"]+)"|(\S+)').findall,
                     normspace=re.compile(r'\s{2,}').sub):
 
     return [normspace(' ', (t[0] or t[1]).strip()) for t in findterms(query_string)]
- 
+    
+
+#Search for the related records within the alumni database based on the normalized query 
 def get_query(query_string, search_fields):
     query = None # Query to search for every search term        
     terms = normalize_query(query_string)
@@ -36,6 +39,7 @@ def get_query(query_string, search_fields):
             query = query & or_query
     return query
     
+#Returns a list of the alumni within the alumni database
 def show_alumni(request,username):
         user = User.objects.get(username=username)
         person = student.objects.get(user=user)

@@ -34,30 +34,50 @@ def add_skill(request, username):
         form = skillForm()
         context_dict = {'person': person, "skills":skills, 'form':form}    
     return render_to_response('skill/add_skill.html', context_dict, RequestContext(request))
-
-def index(request, username):
-    user = student.views.index(username=username)
-    person = student.objects.get(user=user)
-    return render(request, 'skill/add_skill.html', {"person":person})
     
    
 #Show's an indepth look at the user details displaying all information for the record clicked
-def show_detail(request, details_view_url):
+def show_detail(request, username, details_view_url):
         context = RequestContext(request)
         try:
-                details = skill.objects.get(identifier__iexact=details_view_url)    
-        
+                details = skill.objects.get(identifier__iexact=details_view_url)
+                user = User.objects.get(username=username)
+                person = student.objects.get(user=user)    
         except skill.DoesNotExist:
                 pass
-        return render_to_response('skill/detailed_experience.html', {'details':details}, context)
+        return render_to_response('skill/detailed_skill.html', {'details':details, 'person':person}, context)
         
 
-def edit_skill(request, username):
+def edit_skill(request, username, details_view_url):
+        context = RequestContext(request)
+        try:
+                details = skill.objects.get(identifier__iexact=details_view_url)
+                user = User.objects.get(username=username)
+                person = student.objects.get(user=user)
+                if request.method == 'POST':
+                    form = skillForm(request.POST, instance=details)
+                    if form.is_valid():
+                        form.save(commit=True)
+                        return render(request, 'student/home.html', {"person":person})
+                    else:
+                        print (form.errors)                    
+                else:
+                    form = skillForm(instance=details)
+        except skill.DoesNotExist:
+                pass 
+        return render(request, 'skill/edit_skill.html', {'person':person, 'details':details, 'form':form})
+
+
+
+
+
+def delete_skill(request, username, details_view_url):
+        context = RequestContext(request)
         user = User.objects.get(username=username)
         person = student.objects.get(user=user)
-        return render(request, 'skill/edit_skill.html', {"person":person})
-    
-def delete_skill(request, username):
-    user = User.objects.get(username=username)
-    person = student.objects.get(user=user)
-    return render(request, 'skill/delete_skill.html', {"person":person})
+        try:
+                details = skill.objects.get(identifier__iexact=details_view_url)
+                details.delete()
+        except skill.DoesNotExist:
+                pass
+        return render(request, 'skill/delete_skill.html', {'person':person,'details':details})

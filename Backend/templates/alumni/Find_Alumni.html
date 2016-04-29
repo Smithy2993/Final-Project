@@ -52,7 +52,7 @@
                 <li><a href="/accounts/logout/">Log Out</a></li>
             </ul>
         </div>
-
+        <div id ="FindAlumnimain">
         <h1>Find an Alumni</h1>
         <div id = "Alumnisearch">
         <form method="get" action="/alumni/search/{{ user.username }}/">
@@ -76,7 +76,7 @@
                     <td>{{ a.last_name }}</td>
                     <td>{{ a.course }}</td>
                     <td>{{ a.sector }}</td>
-                    <td><a href="/alumni/view_details/{{ a.identifier }}/">View Profile</a></td>
+                    <td><a href="/alumni/view_details/{{ user.username }}/{{ a.identifier }}/">View Profile</a></td>
                 </tr>
                 {% endfor %}
                 </table>

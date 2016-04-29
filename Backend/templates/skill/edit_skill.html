@@ -50,13 +50,14 @@
                 <li><a href="/accounts/logout/">Log Out</a></li>
       </ul>
         </div>
-        <div id = "experiencemain">
-        </div>
-
-        <p>{{ person.first_name}}'s current experience: </p>
-        <div id = "current_experience">
-            
-            {{ skill.name }}
+        <div id = "edit_experience">
+        <h1>Edit your skill</h1>
+        <p>Update your skills and provide more details using the form below:</p>
+        <form id="extra_curricularForm" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" name="submit" value="Edit Experience" />
+        </form>
         </div>
         </div>
         {% endblock %}
