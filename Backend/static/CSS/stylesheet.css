@@ -50,7 +50,7 @@ h1{
     color:#000000;
 }
 .login{
-	background-image: url("http://thefabweb.com/wp-content/uploads/2012/08/oeTqW.jpg");
+	background-image: url('../../static/images/Loginbackground.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	height:500px;
@@ -160,7 +160,7 @@ h1{
 
 }
 .StudentInfoMain{
-    background-image: url("http://www.meetinleeds.co.uk/wp-content/uploads/2014/06/University-Square-and-Parkinson1.jpg");
+    background-image: url('../../static/images/University-Square-and-Parkinson1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height:300px;
@@ -220,7 +220,8 @@ h1{
     display: inline-block;
 }
 #Homebody{
-    height: 600px;
+    background-image: url('../../static/images/Homebackground.jpg');
+    height: 500px;
     width: 100%;
     display: flex;
     text-align: center;
@@ -243,7 +244,7 @@ h1{
 #Homebarleft{
 	height: 100%;
 	width: 15%;
-	background-image: url("http://www.lippymag.co.uk/wp-content/uploads/2012/03/52519626_c9fb8711d1_b.jpg");
+	background-image: url('../../static/images/Homebar.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.3;
@@ -252,7 +253,7 @@ h1{
 #Homebarright{
     height: 100%;
     width: 15%;
-    background-image: url("http://www.lippymag.co.uk/wp-content/uploads/2012/03/52519626_c9fb8711d1_b.jpg");
+    background-image: url('../../static/images/Homebar.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.3;
@@ -351,6 +352,12 @@ h1{
 #profilemain{
 	width: 100%;
 	height: 1300px;
+    background-image:url('../../static/images/Profilebackground.jpg');
+    margin-top: -20px;
+
+}
+#profilemain h1{
+    padding-top: 20px;
 
 }
 #profilemain p{
@@ -367,6 +374,8 @@ h1{
 	margin: 0 auto;
 	margin-top: 10px;
 	border:1px solid white;
+    background-color: #212121;
+    overflow-y: auto;
 
 }
 #profilemainphoto{
@@ -423,6 +432,43 @@ h1{
     font-size:14px;
     color: white;
 }
+#Addedexperience{
+    width: 100%;
+    height: 400px;
+
+
+}
+#Addedexperience p{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    padding: 30px;
+
+}
+#Addedexperience a{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+
+}
+#Addedskill{
+    width: 100%;
+    height: 400px;
+
+
+}
+#Addedskill p{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+
+}
+#Addedskill a{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+
+}
 #show_alumni_table table{
     width: 100%;
     color: black;
@@ -448,7 +494,7 @@ h1{
 
 }
 #AddskillMain{
-    background-image: url(../../static/images/NightExterior.jpg);
+    background-image: url('../../static/images/Skillsmain.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: -20px;
@@ -492,6 +538,8 @@ h1{
     margin-left: 900px;
 }
 #logoutmain{
+    background-image: url('../../static/images/Logoutmain.jpg');
+    background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-align: center;
@@ -501,8 +549,7 @@ h1{
 }
 #detailedexperiencemain{
     width: 100%;
-    height: 600px;
-
+    height: 400px;
 }
 #Alumnisearch form{
     width: 100%;
@@ -515,6 +562,17 @@ h1{
 #Alumnisearch form input[type=text] {
     width: 50%;
     }
+
+#searchresultsmain{
+    background-image:url('../../static/images/fair-teaching1.jpg');
+    height: 100%;
+    margin-top: -20px;
+
+}
+#searchresultsmain h1{
+    padding-top: 20px;
+
+}
 #searchresults{
     background-color: white;
     width: 75%;
@@ -590,13 +648,19 @@ h1{
 }
 #deletedmain{
     width: 100%;
-    height: 200px;
+    height: 400px;
 }
 #deletedmain p{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
     padding: 30px;
+
+}
+#deletedmain a{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
 
 }
 #edit_experience{

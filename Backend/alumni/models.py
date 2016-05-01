@@ -68,6 +68,7 @@ class alumni(models.Model):
         course = models.CharField(max_length=30, choices=DEGREE)
         faculty = models.CharField(max_length=60, choices=FACULTY)
         sector = models.CharField(max_length=60, choices=SECTOR)
+        email = models.EmailField(max_length=70, blank=True, null=True, unique=True)
         self_employed = models.CharField(max_length=3, choices=EMPLOY)
         
         def save(self, *args, **kwargs):

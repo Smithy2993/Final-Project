@@ -21,14 +21,12 @@ def add_extra_curricular(request, username):
 
     if request.method == 'POST':
         form = extra_curricularForm(request.POST)
-        context_dict = {'person': person, "experience":experience, 'form':form}
-        
-        
+        context_dict = {'person': person, "experience":experience, 'form':form} 
         if form.is_valid():
                 cleaned = form.save(commit=False)
                 cleaned.student_ID = student.objects.get(user=user)
                 cleaned.save()
-                return render(request, 'student/home.html', {"person":person, "experience":experience})
+                return render(request, 'extra_curricular/experience_added.html', {"person":person, "experience":experience})
         else:
             print (form.errors)
 
@@ -70,8 +68,6 @@ def edit_extra_curricular(request, username, details_view_url):
                 pass 
         return render(request, 'extra_curricular/edit_experience.html', {'person':person, 'details':details, 'form':form})
 
-        
-        
         
         
     

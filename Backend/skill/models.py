@@ -18,7 +18,7 @@ MAX_TRIES = 1024
 class skill(models.Model):
         student_ID = models.ForeignKey(student, verbose_name="Student ID")
         identifier = models.CharField(max_length=LEN, unique=True, default=None, primary_key = True)
-        name = models.CharField(max_length=128, blank = False, unique = True)
+        name = models.CharField(max_length=128, blank = False)
         additional = models.TextField(validators=[MaxLengthValidator(200)], verbose_name="Additional information", blank = True)
         
         def save(self, *args, **kwargs):

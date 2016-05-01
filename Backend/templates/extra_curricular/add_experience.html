@@ -43,7 +43,7 @@
         <div id="Options">
             <ul>
                 <li><a href="/student/{{ user.username }}">Home</a></li>
-                <li><a href="/extra_curricular/add_extra_curricular/{{ user.username }}">Add Information</a></li>
+                <li><a href="/extra_curricular/add_extra_curricular/{{ user.username }}">Add Experience</a></li>
                 <li><a href="/student/profile/{{ user.username }}">View User Profile</a></li>
                 <li><a href="/skill/add_skill/{{ user.username }}">My Skills</a></li>
                 <li><a href="/alumni/Find_Alumni/{{ user.username }}">Contact Alumni</a></li>
@@ -51,7 +51,11 @@
       </ul>
         </div>
         <div id = "experiencemain">
+        <br>
         <h1>Add some experience to your profile</h1>
+        <p>Please provide details of any experience you may have had</p>
+        <p>Information ranges from the name of the place where the experience was held, role you held during your time plus start and end dates of the experience in question</p>
+        <br>
         <div id = "experienceform">
         <form id="extra_curricularForm" method="POST">
             {% csrf_token %}

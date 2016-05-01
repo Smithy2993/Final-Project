@@ -26,7 +26,7 @@ def add_skill(request, username):
                 cleaned = form.save(commit=False)
                 cleaned.student_ID = student.objects.get(user=user)
                 cleaned.save()
-                return render(request, 'student/home.html', {"person":person, "skills":skills})
+                return render(request, 'skill/skill_added.html', {"person":person, "skills":skills})
         else:
             print (form.errors)
 
