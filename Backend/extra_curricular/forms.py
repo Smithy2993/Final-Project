@@ -18,6 +18,11 @@ class extra_curricularForm(forms.ModelForm):
                 model = extra_curricular
                 fields = ['type_of_exp','name','role','start_date','end_date','Location','Description',]
                 exclude = ['student_ID','identifier']
+                widgets = {
+                'start_date': forms.TextInput(attrs={'placeholder': 'dd/mm/yyyy'}),
+                'end_date': forms.Textarea(
+                attrs={'placeholder': 'dd/mm/yyyy'}),
+                }
                 
         def clean(self):
                 cleaned_data = super(extra_curricularForm, self).clean()

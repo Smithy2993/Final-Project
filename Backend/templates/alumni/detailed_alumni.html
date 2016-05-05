@@ -2,7 +2,7 @@
 {% extends "base.html" %}
      <html>
         <head>
-                {% block title %}Detailed experience{% endblock %}
+                {% block title %}Detailed Alumni{% endblock %}
         </head>
 
         <body>
@@ -50,22 +50,43 @@
                 <li><a href="/accounts/logout/">Log Out</a></li>
       </ul>
         </div>
-        <div id = "SkillInfoBanner">
-        <h1>Skill Details</h1>
-
+        <div id = "detailedalumnimain">
+        <div id = "detailedalumniheader">
+        <h1>{{details.first_name }} {{details.last_name }}</h1>
         </div>
-        <div id = "detailedskillmain">
-        <div id = "detailedskill">
-        <p>Name: {{ details.name }}</p>
-        <p>Description: </p>
-        <p>{{ details.additional }}</p>
-
-
-
-        </div>
-        <div id = "editdelete">
-            <li><a href="/skill/edit_skill/{{ user.username }}/{{ details.identifier }}/">Edit</a></li>
-            <li><a href="/skill/delete_skill/{{ user.username }}/{{ details.identifier }}/">Delete</a></li>
+        <p>You may contact the alumni in question if an email is provided, by clicking the link</p>
+        <p>View in depth details relating to {{ details.first_name}} {{details.last_name }} below: </p>
+        <div id = "detailedalumni">
+			<table border="0" align="right">
+                <tr>
+                    <td>First Name:</td>
+                    <td>{{ details.first_name }}</td> 
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td>{{ details.last_name }}</td> 
+                </tr>
+                <tr>
+                    <td>Course:</td>
+                    <td>{{ details.course }}</td> 
+                </tr>
+                <tr>
+                    <td>Faculty:</td>
+                    <td>{{ details.faculty }}</td> 
+                </tr>
+                <tr>
+                    <td>Sector:</td>
+                    <td>{{ details.sector }}</td> 
+                </tr>
+                <tr>
+                    <td>Self-employed:</td>
+                    <td>{{ details.self_employed }}</td> 
+                </tr>
+                <tr>
+                    <td>Contact Information:</td>
+                    <td><a href="mailto:{{ details.email }}">{{ details.email }}</a></td> 
+                </tr>
+            </table>
         </div>
         </div>
 
