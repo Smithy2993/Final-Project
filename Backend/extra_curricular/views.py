@@ -48,7 +48,7 @@ def show_detail(request, username, details_view_url):
         return render_to_response('extra_curricular/detailed_experience.html', {'details':details, 'person':person}, context)
         
         
-      
+#Reads in the identifier from the details_view_url argument. Returns the record to the a form for the user to edit. After editing the new record is validated and saved.       
 def edit_extra_curricular(request, username, details_view_url):
         context = RequestContext(request)
         try:
@@ -69,8 +69,7 @@ def edit_extra_curricular(request, username, details_view_url):
         return render(request, 'extra_curricular/edit_experience.html', {'person':person, 'details':details, 'form':form})
 
         
-        
-    
+#Matches the exact record via the identifier and deletes it from the extra_curricular database
 def delete_extra_curricular(request, username, details_view_url):
         context = RequestContext(request)
         user = User.objects.get(username=username)

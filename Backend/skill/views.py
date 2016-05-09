@@ -10,8 +10,8 @@ from django.contrib.auth.models import User
 from student.models import student
 from django.template.context_processors import csrf
 
+#
 def add_skill(request, username):
-
     user = User.objects.get(username=username)
     person = student.objects.get(user=user)
     skills = skill.objects.filter(student_ID=person).order_by('name')

@@ -64,7 +64,7 @@ def search_alumni(request, username):
     found_entries = None
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string = request.GET['q']
-        entry_query = get_query(query_string, ['first_name', 'last_name','course'])
+        entry_query = get_query(query_string, ['first_name', 'last_name','course','sector'])
         found_entries = alumni.objects.filter(entry_query)
         user = User.objects.get(username=username)
         person = student.objects.get(user=user)
