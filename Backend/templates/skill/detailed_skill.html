@@ -60,12 +60,10 @@
         <p>Description: </p>
         <p>{{ details.additional }}</p>
 
-
-
         </div>
         <div id = "editdelete">
-            <li><a href="/skill/edit_skill/{{ user.username }}/{{ details.identifier }}/">Edit</a></li>
-            <li><a href="/skill/delete_skill/{{ user.username }}/{{ details.identifier }}/">Delete</a></li>
+        <p>To edit the record <a href="/extra_curricular/edit_extra_curricular/{{ user.username }}/{{ details.identifier }}/">Click here</a></p>
+        <p>To delete the record <a href="/extra_curricular/delete_extra_curricular/{{ user.username }}/{{ details.identifier }}/">Click here</a></p>
         </div>
         </div>
 

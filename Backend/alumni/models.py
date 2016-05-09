@@ -6,6 +6,7 @@ from django.core.validators import *
 import random
 from random import randrange
 
+# Determines a random key for identification purposes
 def rand_key(size):
         return ''.join([random.choice(string.letters + string.digits) for i in range(size)])
         
@@ -13,6 +14,7 @@ CHARS = '0123456789ABCDEFGHJKMNPQRSTVWXYZ'
 LEN = 8
 MAX_TRIES = 1024
 
+# Attributes relating to each alumni object
 class alumni(models.Model):
         #Choices implemented within the models for degree, faculty, sector and employment
         DEGREE = (

@@ -16,7 +16,7 @@ def index(request, username):
     person = student.objects.get(user=user)
     return render(request, 'student/home.html', {"person":person})
 
-#Profile page information
+#Profile page information. Take's in the username argument and matches it with the students records
 def profile(request, username):
         user = User.objects.get(username=username)
         person = student.objects.get(user=user)

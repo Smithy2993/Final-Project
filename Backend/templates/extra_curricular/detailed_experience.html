@@ -50,46 +50,24 @@
                 <li><a href="/accounts/logout/">Log Out</a></li>
       </ul>
         </div>
-        <div id = "detailedexperiencemain">
-        <h1>{{ details.name }}</h1>
-        <div id = "detailedexperience">
-			<table border="0" align="right">
-                <tr>
-                    <td>Type of Experience:</td>
-                    <td>{{ details.type_of_exp }}</td> 
-                </tr>
-                <tr>
-                    <td>Name:</td>
-                    <td>{{ details.name }}</td> 
-                </tr>
-                <tr>
-                    <td>Role:</td>
-                    <td>{{ details.role}}</td> 
-                </tr>
-                <tr>
-                    <td>Start Date:</td>
-                    <td>{{ details.start_date }}</td> 
-                </tr>
-                <tr>
-                    <td>End Date:</td>
-                    <td>{{ details.end_date }}</td> 
-                </tr>
-                <tr>
-                    <td>Location:</td>
-                    <td>{{ details.Location }}</td> 
-                </tr>
-                <tr>
-                    <td>Description:</td>
-                    <td>{{ details.Description }}</td> 
-                </tr>
-            </table>
+		<div id = "ExperienceBanner">
+        <h1>Experience Details</h1>
+
         </div>
+        <div id = "detailedexperiencemain">
+        <div id = "detailedexperience">
+		<p>Name: {{ details.name }}</p>
+        <p>Role: {{ details.role }}</p>
+        <p>Start date: {{ details.start_date }}</p>
+        <p>End date: {{ details.end_date }}</p>
+        <p>Location: {{ details.Location }}</p>
+        <p>Description: {{ details.Description }}</p>
         </div>
         <div id = "editdelete">
-            <li><a href="/extra_curricular/edit_extra_curricular/{{ user.username }}/{{ details.identifier }}/">Edit</a></li>
-            <li><a href="/extra_curricular/delete_extra_curricular/{{ user.username }}/{{ details.identifier }}/">Delete</a></li>
+        <p>To edit the record <a href="/extra_curricular/edit_extra_curricular/{{ user.username }}/{{ details.identifier }}/">Click here</a></p>
+        <p>To delete the record <a href="/extra_curricular/delete_extra_curricular/{{ user.username }}/{{ details.identifier }}/">Click here</a></p>
         </div>
-
+        </div>
 
         {% endblock %}
         </body>

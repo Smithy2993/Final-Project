@@ -58,7 +58,7 @@ def show_detail(request, username, details_view_url):
                 pass
         return render_to_response('alumni/detailed_alumni.html', {'details':details, 'person':person}, context)
 
-
+# Searches for the alumni and returns the results to the search results template
 def search_alumni(request, username):
     query_string = ''
     found_entries = None
